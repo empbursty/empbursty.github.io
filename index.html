@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 transitional//EN"
+"http://www.w3.org/TR/HTML4.01/loose/dtd">
+<html>
+
+<head><title> fortest </title> <!-- http://validator.w3.org -->
+<meta http-equiv="cache-control" content="no-store, no-cache">
+<style type="text/css">
+.check {resize: none; float: right; position: fixed; bottom: 8px; right: 9px; background: linear-gradient(to bottom left, teal, white)}
+noscript {color: red; font-style: italic; font-size: 2em; margin-left: 450px; }
+body {background: linear-gradient(to right, white, dodgerblue)}
+#path {background: linear-gradient(to bottom right, white,gray); resize: none; border-color: black; margin-left: auto; margin-right: auto}
+</style>
+</head>
+
+<body>
+<textarea class="check" id="check1">script is failed</textarea>
+<img src="" id="preview" alt="">
+<textarea cols="70" id="path"></textarea><br>
+</body>
+<noscript>JavaScript is disabled</noscript> 
+<script type="text/javascript">
+var z=document.getElementById("check1");
+path=document.getElementById("path");
+path.focus();
+z.value="script is working";
+</script>
+</html>
