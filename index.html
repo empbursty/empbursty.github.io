@@ -46,7 +46,12 @@ position: relative; opacity: .4; box-shadow: 2px 0px 1px 1px;
 .del:hover .inarrow {border-right-color: lightsteelblue} 
 /*#alerted {background: darkcyan; resize: none; float: right; fixed: absolute; bottom: 60px; right: 9px; } */
 /*#coords {background: khaki; resize: none; float: right; position: fixed; bottom: 60px; right: 9px; } */
-body {background: url("look2.jpg"); border: 0px solid; margin: 0px; }
+body {
+	background: gray url("look2.jpg") top center no-repeat;
+/*	background: gray url("http://csg24.ru/imag/2%2818%29.jpg") top center no-repeat;  */
+	border: 0px solid;
+	margin: 0px;
+}
 * {
 cursor: url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), 
 url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;
@@ -379,13 +384,13 @@ wins[0].style.borderColor="white";
 for (var k=0; k<dels.length; k++)
 dels[k].style.opacity=".4";
 
-	function checkdels (count,context) {				//anch5
+	function checkdels (imgCount,context) {				//anch5
   if (context==right1) {	context=del1	};
   if (context==right2) {	context=del2	};
   if (context==right3) {	context=del3	};
   if (context==right4) {	context=del4	};
   if (context==right5) {	context=del5	};
-  if (count>0) {context.style.opacity="1"} else {context.style.opacity=".4"}
+  if (imgCount>0) {context.style.opacity="1"} else {context.style.opacity=".4"}
 }	
 
 	function selectMinipics (minipic) {		//anch10
@@ -417,7 +422,7 @@ selectMinipics(minipic3); // execute;
 selectMinipics(minipic4); // execute;
 selectMinipics(minipic5); // execute;
 
-	function runactive (pic,x,count,j,context) {				//anch4
+	function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
 //if (context==ok1) {
 
 if (context==undefined) {
@@ -441,8 +446,8 @@ if (context==del4) 	 {	context=right4	};
 if (context==del5) 	 {	context=right5	};
 
 	//context=right1;
-checkdels(count,context);
-if (count<2) {
+checkdels(imgCount,context);
+if (imgCount<2) {
 context.style.opacity=".2";					//do smth with it;
 } else {
 context.style.opacity="1";
@@ -451,7 +456,7 @@ for (var r=0; r<pic.length; r++) {
  if (pic[r].src.slice(-11)=="default.jpg") break;
 }
 r=r-1;
- if (r==j) {
+ if (r==focusedImg) {
 context.style.opacity=".2";	//context? ><
 } 	
 	}
@@ -475,23 +480,23 @@ context.style.opacity=".2";				//left1~context;
 	}
 
 var makeClick=function (pic,minipic,colored) {
-var count=0;	// closure
+var imgCount=0;	// closure
 var h=0;
 var x=0; 
-var j=0;
-var jj=0;
+var focusedImg=0;
+var afterFocusedImg=0;
 var context;	// for transfer 'this' inside other func; 
 	function clicked (jval,jjval,xvalue) {
-j+=jval;
-jj+=jjval;
+focusedImg+=jval;
+afterFocusedImg+=jjval;
 x+=xvalue;
 }
 return {
 	increment: function () {
 context=this;		// for transfer 'this' inside func;
-var source=pic[j+1].src.slice(-11);
-if (!!pic[jj+2]) {
-var source2=pic[jj+2].src.slice(-11);
+var source=pic[focusedImg+1].src.slice(-11);
+if (!!pic[afterFocusedImg+2]) {
+var source2=pic[afterFocusedImg+2].src.slice(-11);
 }
 if (source!="default.jpg") {
 clicked(1,1,-147);
@@ -504,16 +509,16 @@ this.style.opacity=".2";
 this.style.opacity=".2";
 }
 lunactive (x,context);
-shift (pic,minipic,j);	
+shift (pic,minipic,focusedImg);	
 	},
 	decrement: function () {		
 context=this;
 if (x<0) {
 clicked(-1,-1,147);
 colored.style.left=x+"px";
-shift(pic,minipic,j);
+shift(pic,minipic,focusedImg);
 lunactive(x,context);
-runactive(pic,x,count,j,context);
+runactive(pic,x,imgCount,focusedImg,context);
 }
 	},
 /*
@@ -534,7 +539,7 @@ path.value=""}, 2500);
 //if (event.keyCode=="13") {
 var myimg=new Image();	
 
-var xstr="Неподдерживаемый формат файла";
+var xstr="!!!!!!!!Неподдерживаемый формат файла";
 var str="";	
 if (path.value.length<4) {path.value=""; return	} 
 str=path.value.slice(-4);
@@ -606,23 +611,23 @@ h++;
 path.value="";			//how back line? incorrect question;
 path.focus();
 	},500);		// end of timeout
-++count;	
-	shift(pic,minipic,j);
-	runactive(pic,x,count,j,context);
+++imgCount;	
+	shift(pic,minipic,focusedImg);
+	runactive(pic,x,imgCount,focusedImg,context);
 		},
 	del: function () {			
 context=this;
-var icount=0;
+var beforeCount=0;
 var aftercount=0;
 var fullcount=0;
 for (var k=minipic.length-1; k>-1; k--) {					
 if (minipic[k].style.border=="3px solid dodgerblue" || minipic[k].style.border=="3px solid blue") {  	//anch2
 	minipic[k].src="default.jpg";							
 minipic[k].style.border="3px solid transparent";								
-if (k<=j) {icount+=1} else {aftercount+=1;}					
-fullcount=icount+aftercount;
+if (k<=focusedImg) {beforeCount+=1} else {aftercount+=1;}					
+fullcount=beforeCount+aftercount;
 //alert("fullcount - "+fullcount);
-//alert("count - "+count);
+//alert("imgCount - "+imgCount);
 for (var p=k; p<minipic.length-1; p++) {
 minipic[p].src=minipic[p+1].src;
 pic[p].src=pic[p+1].src; 
@@ -644,12 +649,12 @@ pic[p].style.marginTop=pic[p+1].style.marginTop;
 	}
 	
 if (fullcount!=0) {
-	count-=fullcount;
-if (icount>0) {
-j=j-icount;
-jj=jj-icount; 
-if (j<0) {j=0; jj=1; x-=147;};
-for (var i=0; i<icount; i++) {
+	imgCount-=fullcount;
+if (beforeCount>0) {
+focusedImg=focusedImg-beforeCount;
+afterFocusedImg=afterFocusedImg-beforeCount; 
+if (focusedImg<0) {focusedImg=0; afterFocusedImg=1; x-=147;};
+for (var i=0; i<beforeCount; i++) {
 x+=147;
 colored.style.left=x+"px"; 
 }
@@ -658,33 +663,34 @@ colored.style.left=x+"px";
 		} 
 else {
 
-if (count>0) {
-count=count-1;					//decrease count 	
-pic[count].src="default.jpg"; 
-minipic[count].src="default.jpg"; 
+if (imgCount>0) {
+imgCount=imgCount-1;					//decrease imgCount 	
+pic[imgCount].src="default.jpg"; 
+minipic[imgCount].src="default.jpg"; 
 
-if (count==j) {
-if (j!=0) {
+if (imgCount==focusedImg) {
+if (focusedImg!=0) {
 x+=147;
 colored.style.left=x+"px";  }
-if (j>0) { 
-j=j-1; 
-jj=jj-1; 
+if (focusedImg>0) { 
+focusedImg=focusedImg-1; 
+afterFocusedImg=afterFocusedImg-1; 
 }
 	}
 		}
 			} 
 if (h>0) { h=h-1;}				//decrease h
-shift(pic,minipic,j);
-runactive(pic,x,count,j,context);
+shift(pic,minipic,focusedImg);
+runactive(pic,x,imgCount,focusedImg,context);
 lunactive(x,context);
 
-if (count==0) {
+if (imgCount==0) {
 minipic[0].style.border="3px solid transparent"; 
 }
 	}
 		}
 			}			
+	// events
 click1=makeClick(pic1,minipic1,colored1);
 click2=makeClick(pic2,minipic2,colored2);
 click3=makeClick(pic3,minipic3,colored3);
@@ -742,12 +748,12 @@ click5.add();
 	}
 		}
 
-	function shift (pic,minipic,j) {		// focused element anch8
+	function shift (pic,minipic,focusedImg) {		// focused element anch8
 for (var i=0; i<minipic.length; i++) {
 minipic[i].style.border="3px solid transparent"; }
-var source3=pic[j].src.slice(-11);
+var source3=pic[focusedImg].src.slice(-11);
 if (source3!="default.jpg") {
-minipic[j].style.border="3px solid forestgreen"; }
+minipic[focusedImg].style.border="3px solid forestgreen"; }
 	}
 //	function animateScriptStatus {
 var str="script is working";
