@@ -2,9 +2,11 @@
 "http://www.w3.org/TR/HTML4.01/loose/dtd">
 <html>
 
-<head><title> colored </title> <!-- http://validator.w3.org -->
+<head>
+<title> colored </title>
 <meta http-equiv="cache-control" content="no-store, no-cache">
 <meta http-equiv="content-type" content="text-html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
 .check {resize: none; float: right; position: fixed; bottom: 8px; right: 209px; background: white; height: 30px; text-align: center;}
 noscript {color: red; font-style: italic; font-size: 2em; margin-left: 450px; }
@@ -41,7 +43,8 @@ border-style: solid; border-width: 28.5px 10px; border-color: transparent; borde
 .righter .del {height: 76px; float: ; border: 1px solid forestgreen; display: block; background: ghostwhite;
 position: relative; opacity: .4; box-shadow: 2px 0px 1px 1px;
 }
-.added {width: 78px; height: 78px; border: 0px solid navy !important; display: inline-block; margin-right: ; overflow: hidden }
+.added {width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; 
+}
 .del .delete {margin-top: 9px; margin-left: 2px}
 .del:hover .inarrow {border-right-color: lightsteelblue} 
 /*#alerted {background: darkcyan; resize: none; float: right; fixed: absolute; bottom: 60px; right: 9px; } */
@@ -532,18 +535,24 @@ url=file1.value;
 	add: function () {	
 	function clear () {
 setTimeout(function () {
-path.value=""}, 2500);	
+path.value=""}, 1000);	
 	}
 //context=this;
 //alert(context);	
 //if (event.keyCode=="13") {
 var myimg=new Image();	
 
-var xstr="!!!!!!!!Неподдерживаемый формат файла";
+var wrongStr="Не поддерживаемый формат файла";
 var str="";	
-if (path.value.length<4) {path.value=""; return	} 
+//if (path.value.length<4) {path.value=""; return	} 
 str=path.value.slice(-4);
-
+/*
+if (path.value=="red") {					//anch02
+alert(h);
+apps[h].style.backgroundColor="red";
+h++;
+};	
+*/
 if (path.value.slice(-5).toLowerCase()==".jpeg") {
 	myimg.src=path.value;
 pic[h].src=myimg.src;
@@ -559,7 +568,7 @@ pic[h].src=myimg.src;
 minipic[h].src=myimg.src;
 //alert(pic.id);
 break;
-default : path.value=xstr; clear(); return
+default : path.value=wrongStr; clear(); return
 }
 	}
 //improved for resize (fix)
