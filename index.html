@@ -1,96 +1,264 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 transitional//EN"
-"http://www.w3.org/TR/HTML4.01/loose/dtd">
-<html>
+﻿<!DOCTYPE html>
+<html>	 <!-- delete if HTML5? -->
 
-<head>
+<head>	
 <title> colored </title>
 <meta http-equiv="cache-control" content="no-store, no-cache">
 <meta http-equiv="content-type" content="text-html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">	<!-- for mobile device -->
 <style type="text/css">
-.check {resize: none; float: right; position: fixed; bottom: 8px; right: 209px; background: white; height: 30px; text-align: center;}
-noscript {color: red; font-style: italic; font-size: 2em; margin-left: 450px; }
-img {margin-right: ; display: block; float: left; } 
-.window {width: 141px; height: 140px; border: 0px solid navy; overflow: hidden; display: inline-block;
-margin-right: 15px; position: relative; border-width: 1px 3px;}
-.color {width: 889px; border: 0px solid red; margin: -1px; position: relative;}				/* 887px */
+.check {
+	background: white; 
+	bottom: 8px;
+	float: right; 
+	height: 30px; 
+	position: fixed;
+	resize: none; 
+	right: 209px; 
+	text-align: center;
+}
+noscript {
+	color: red; 
+	font-size: 2em;
+	font-style: italic; 
+	margin-left: 450px; 
+}
+img {
+	display: block;
+	float: left;
+} 
+.window {
+	border-color: navy; 
+	border-style: solid;
+	border-width: 1px 3px;
+	display: inline-block;
+	height: 140px; 
+	margin-right: 15px;
+	overflow: hidden;
+	position: relative;
+	width: 141px; 
+}
 
-.outarrow {width: 30px; height: 114px; border: 3px solid forestgreen; display: inline-block; position: relative; bottom: 15px; /*z-index: 1;*/
-background: ghostwhite; margin-right: 15px; opacity: .4; box-shadow: 3px 3px 2px 2px black;
-}
-.arrow {width: 1px;  height: 1px; position: relative; top: 27.5px; margin: 0 4px; 
-border: solid; border-width: 28.5px 10px; border-color: transparent; border-right-color: forestgreen;  right: 6px;}
-.delete {width: 1px;  height: 1px; position: relative; margin: 0 4px; 
-border: solid; border-width: 28.5px 10px; border-color: transparent; border-right-color: forestgreen;  right: 6px;}
-.del:hover .delete{border-right-color: gold}
-.inarrow {width: 1px; height: 1px; position: absolute; top: -27.5px; 
-border-style: solid; border-width: 28.5px 10px; border-color: transparent; border-right-color: ghostwhite; right: -13px}
-.outarrow:hover {background: lightsteelblue}
-.outarrow:hover .inarrow{border-right-color: lightsteelblue}
-.outarrow:hover .arrow{border-right-color: gold}
-#view {position: ; border: 0px solid red; width: 260px; float: left; margin-right: 10px;} 
-#header {border: 1px solid red; height: 30px;}
-.box {position: relative; border: 0px solid green; width: ; height: 142px;
--moz-user-select: none; -webkit-user-select: none;
-}
-.file {border: 0px solid navy; width: ; display: block; position: ; margin-right: 10px; margin-top: ;}
-.infile {border: 0px solid blue; width: px; overflow: hidden; position:;}
-.rside {border: 0px solid navy; display: inline-block; width: 480px;
--moz-user-select: none; -webkit-user-select: none; margin-top: ;
-}
-.rside img {border: 3px solid transparent;}
+.color {			/* 887px */
+	width: 889px; 
+/*	border: 0px solid red; 	*/
+	margin: -1px; 
+	position: relative;
+}				
 
-.righter .del {height: 76px; float: ; border: 1px solid forestgreen; display: block; background: ghostwhite;
-position: relative; opacity: .4; box-shadow: 2px 0px 1px 1px;
+.outarrow {
+	width: 30px;
+	height: 114px;
+	border: 3px solid forestgreen; 
+	display: inline-block; 
+	position: relative; 
+	bottom: 15px;
+	background: ghostwhite;
+	margin-right: 15px;
+	opacity: .2;
+	box-shadow: 3px 3px 2px 2px black;
 }
-.added {width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; 
+
+.arrow {
+	border-color: transparent; 
+	border-right-color: forestgreen;  
+	border-style: solid; 
+	border-width: 28.5px 10px; 
+	height: 1px; 
+	margin: 0 4px; 
+	position: relative; 
+	right: 6px;
+	top: 27.5px;
+	width: 1px;
 }
-.del .delete {margin-top: 9px; margin-left: 2px}
-.del:hover .inarrow {border-right-color: lightsteelblue} 
+	
+.delete {
+	border-color: transparent; 
+	border-right-color: forestgreen;  
+	border-style: solid; 
+	border-width: 28.5px 10px; 
+	height: 1px; 
+	margin: 0 4px; 
+	position: relative; 
+	right: 6px;
+	width: 1px;
+}
+	
+.del:hover .delete {
+	border-right-color: gold
+}
+.inarrow {
+	border-color: transparent; 
+	border-right-color: ghostwhite; 
+	border-style: solid; 
+	border-width: 28.5px 10px;
+	height: 1px; 
+	position: absolute;
+	right: -13px;
+	top: -27.5px; 
+	width: 1px; 
+}
+
+.outarrow:hover {
+background: lightsteelblue;
+}
+
+.outarrow:hover .inarrow {
+	border-right-color: lightsteelblue;
+}
+
+.outarrow:hover .arrow {
+	border-right-color: gold;
+}
+
+#view {
+/*	border: 0px solid red; */
+	float: left; 
+	margin-right: 10px;
+	position: static;
+	width: 260px; 
+} 
+
+#header {
+	border: 1px solid red; 
+	height: 30px;
+}
+
+.box {
+	position: relative;
+		-moz-user-select: none; 
+		-webkit-user-select: none;
+	height: 142px;
+}
+
+.file {
+	display: block;
+	margin-right: 10px; 
+}
+
+.infile {
+	border: 0px solid blue; 
+	overflow: hidden; 
+}
+
+.rside {
+	display: inline-block; 
+		-moz-user-select: none; 
+		-webkit-user-select: none;
+	width: 480px;
+}
+
+.rside img {
+	border: 3px solid transparent;
+}
+
+.righter .del {
+	background: ghostwhite;
+	border: 1px solid forestgreen; 
+	box-shadow: 2px 0px 1px 1px;
+	display: block;
+	height: 76px; 
+	opacity: .4;
+	position: relative;
+}
+
+.del .delete {
+	margin-left: 2px;
+	margin-top: 9px; 
+}
+
+.del:hover .inarrow {
+	border-right-color: lightsteelblue
+}
+ 
 /*#alerted {background: darkcyan; resize: none; float: right; fixed: absolute; bottom: 60px; right: 9px; } */
 /*#coords {background: khaki; resize: none; float: right; position: fixed; bottom: 60px; right: 9px; } */
+
 body {
-	background: gray url("look2.jpg") top center no-repeat;
+	background: gray url("look2.jpg") top center no-repeat;	
 /*	background: gray url("http://csg24.ru/imag/2%2818%29.jpg") top center no-repeat;  */
-	border: 0px solid;
 	margin: 0px;
 }
+
 * {
-cursor: url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), 
-url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;
+	cursor: url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), 
+	url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;
 }
-#sdiv {border: px solid navy; float: left; margin-top: 5px;}
-.del:hover {background: lightsteelblue}
-#way {background: white;
-/*background: linear-gradient(to top left, slategray, gold); */
-resize: none; border-color: black; width: 497px; color: forestgreen; 
-font-family: 'myFont'; font-size: 17px; height: 50px;
-font-style: ; padding: 4px; font-weight: bold;
+
+#sdiv {
+	float: left; 
+	margin-top: 5px;
 }
-.color img[src*='default.jpg'], .rside img[src*='default.jpg'] {opacity: 0}
-.righter {float: right; margin-top:;}
-.color div {border: 1px solid white ; width: 141px; height: 142px; display: inline-block; overflow: hidden; margin-right: ;}
-#superdiv {position: absolute; border: 0px solid; ; left: 8%;}
-h1 {margin-left: 25%; 
-font-family: 'myFont';
-font-size: 40px;
-color: green;
+
+.del:hover {
+	background: lightsteelblue
 }
-#desc, .check {font-family: 'myFont';
-font-size: 21px;
-color: black;
-font-weight: bold;
+
+#way {
+	background: white;
+	/*background: linear-gradient(to top left, slategray, gold); */
+	font-family: 'myFont'; font-size: 17px; height: 50px;
+	font-style: ; padding: 4px; font-weight: bold;
+	resize: none; border-color: black; width: 497px; color: forestgreen; 
 }
+.color img[src*='default.jpg'], 
+.rside img[src*='default.jpg'] {
+	opacity: 0;
+}
+
+.righter {
+	float: right; 
+}
+
+.color div {
+	border: 1px solid white; 
+	display: inline-block; 
+	height: 142px;
+	overflow: hidden; 
+	width: 141px; 
+}
+
+#superdiv {
+	left: 8%;
+	position: absolute;
+}
+
+h1 {
+	color: green;
+	font-family: 'myFont';
+	font-size: 40px;
+	margin-left: 25%; 
+}
+#desc,
+.check {
+	color: black;
+	font-family: 'myFont';
+	font-size: 21px;
+	font-weight: bold;
+}
+
 @font-face {
-font-family: 'myFont';
-src:
-url('gunnyrewritten.woff') format('woff'), 
-url('gunnyrewritten.woff2') format('woff2'), 
-url('gunnyrewritten.ttf') format('truetype');
-font-weight: 1400;
-font-style: normal;
+	font-family: 'myFont';
+	src:
+	url('gunnyrewritten.woff') format('woff'), 
+	url('gunnyrewritten.woff2') format('woff2'), 
+	url('gunnyrewritten.ttf') format('truetype');
+	font-weight: 1400;
+	font-style: normal;
 }
-#topbox {width: 100%; height: 100%; position: absolute; border: ;}
+
+#topbox {
+	width: 100%;
+	height: 100%; 
+	position: absolute;
+}
+
+.added1 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden;}
+.added2 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
+.added3 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
+.added4 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
+.added5 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
+.newadded {}
 </style>
 <link rel="icon" href="icon.ico" type="image/x-icon"> 
 </head>
@@ -310,7 +478,7 @@ font-style: normal;
 <noscript>JavaScript is disabled</noscript>
 <script type="text/javascript">
 window.onload=function () {
-z=document.getElementById("check1");
+scriptCondition=document.getElementById("check1");
 //crds=document.getElementById("coords");
 //alerted=document.getElementById("alerted");
 left1=document.getElementById("outlb1");
@@ -352,178 +520,209 @@ images=document.images;
 rside=document.getElementsByClassName("rside")[0];
 rimgs=rside.getElementsByTagName("img");
 
-for (var i=0; i<rimgs.length; i++) {
-var div=document.createElement("div");
-div.className="added";
-rside.insertBefore(div, rside.firstChild);
-	}
-var apps=document.getElementsByClassName("added");
+/**
+  x: x-coordinate;
+  h: index of added minipic
+*/
 
-for (var i=0; i<apps.length; i++) {
-apps[i].appendChild(rimgs[i]);
+var diff=6;
+for (var i=0; i<rimgs.length; i++) {
+  var div=document.createElement("div");
+  if (! (i%6) ) {
+	--diff;
+  }
+//div.className="newadded";
+  div.className="added" + diff + " " + "newadded";
+  rside.insertBefore(div, rside.firstChild);
 }
+
+var apps1=document.getElementsByClassName("added1");
+var apps2=document.getElementsByClassName("added2");
+var apps3=document.getElementsByClassName("added3");
+var apps4=document.getElementsByClassName("added4");
+var apps5=document.getElementsByClassName("added5");
+var newapps=document.getElementsByClassName("newadded");
+
+for (var i=0; i<newapps.length; i++) {
+  newapps[i].appendChild(rimgs[i]);
+}
+
 path.focus();
 path.onkeypress=function (event) {
-if (event.keyCode=="13") {
-event.preventDefault();
+  if (event.keyCode=="13") {
+  event.preventDefault();
+  }
 }
-	}
+
 for (var i=0; i<dels.length; i++) {
-dels[i].onmouseover=function () {
-this.style.background="lightsteelblue"
+  dels[i].onmouseover=function () {
+  this.style.background="lightsteelblue"
+  }
+  dels[i].onmouseout=function () {
+  this.style.background="ghostwhite"
+  }
 }
-dels[i].onmouseout=function () {
-this.style.background="ghostwhite"
+
+function paint () {
+  for (var i=0; i<wins.length; i++) {
+  wins[i].style.borderColor="forestgreen";
+  }
 }
-	}
-	function paint () {
-for (var i=0; i<wins.length; i++) {
-wins[i].style.borderColor="forestgreen";
-}
-	}
 paint();
-wins[0].style.borderColor="white";
+wins[0].style.borderColor="white"; 			// default 1st window;
 
-for (var k=0; k<dels.length; k++)
-dels[k].style.opacity=".4";
-
-	function checkdels (imgCount,context) {				//anch5
+for (var j=0; j<dels.length; j++)
+  dels[j].style.opacity=".4";
+  
+function checkdels (imgCount,context) {				//anch5
   if (context==right1) {	context=del1	};
   if (context==right2) {	context=del2	};
   if (context==right3) {	context=del3	};
   if (context==right4) {	context=del4	};
   if (context==right5) {	context=del5	};
-  if (imgCount>0) {context.style.opacity="1"} else {context.style.opacity=".4"}
+  if (imgCount>0) {
+    context.style.opacity="1"
+  } else {
+  context.style.opacity=".4"
+  }
 }	
 
-	function selectMinipics (minipic) {		//anch10
-for (var i=0; i<minipic.length; i++) {
-  minipic[i].onclick=function () {
-  var ministr=this.src;
-if (ministr.slice(-11)!="default.jpg") {
-	if (this.style.border=="3px solid transparent") {
-	  this.style.border="3px solid dodgerblue";
-	  return;
+function selectMinipics (minipic) {						   //anch10
+  for (var i=0; i<minipic.length; i++) {
+    minipic[i].onclick=function () {
+	  var ministr=this.src;
+	  if (ministr.slice(-11)!="default.jpg") {
+	    if (this.style.border=="3px solid transparent") {
+	      this.style.border="3px solid dodgerblue";
+	      return;
+	    }
+	    if (this.style.border=="3px solid dodgerblue") {
+	      this.style.border="3px solid transparent"
+	    }	
+	    if (this.style.border=="3px solid forestgreen") {
+	      this.style.border="3px solid blue";
+	      return;	
+	    } 
+	    if (this.style.border=="3px solid blue") { 
+	      this.style.border="3px solid forestgreen";
+	    } 
+	  }
+    }
+  }
 }
-	  if (this.style.border=="3px solid dodgerblue") {
-	  this.style.border="3px solid transparent"
-}	
-	  if (this.style.border=="3px solid forestgreen") {
-	  this.style.border="3px solid blue";
-	  return;	
-} 
-	  if (this.style.border=="3px solid blue") {
-	  this.style.border="3px solid forestgreen";
-} 
-	}
-		}
-			}
-				}
+
 selectMinipics(minipic1); // execute;
 selectMinipics(minipic2); // execute;
 selectMinipics(minipic3); // execute;
 selectMinipics(minipic4); // execute;
 selectMinipics(minipic5); // execute;
 
-	function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
+function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
 //if (context==ok1) {
+  if (context==undefined) {
+  if (wins[0].style.borderColor=="white")	{	context=right1	} 	else
+  if (wins[1].style.borderColor=="white")	{	context=right2	} 	else
+  if (wins[2].style.borderColor=="white")	{	context=right3	} 	else
+  if (wins[3].style.borderColor=="white")	{	context=right4	} 	else
+  if (wins[4].style.borderColor=="white")	{	context=right5	};
+  }
 
-if (context==undefined) {
-if (wins[0].style.borderColor=="white")	{	context=right1	} 	else
-if (wins[1].style.borderColor=="white")	{	context=right2	} 	else
-if (wins[2].style.borderColor=="white")	{	context=right3	} 	else
-if (wins[3].style.borderColor=="white")	{	context=right4	} 	else
-if (wins[4].style.borderColor=="white")	{	context=right5	};
-	}
+  if (context==left1) {	context=right1	};
+  if (context==left2) {	context=right2	};
+  if (context==left3) {	context=right3	};
+  if (context==left4) {	context=right4	};
+  if (context==left5) {	context=right5	};
 
-if (context==left1) {	context=right1	};
-if (context==left2) {	context=right2	};
-if (context==left3) {	context=right3	};
-if (context==left4) {	context=right4	};
-if (context==left5) {	context=right5	};
-
-if (context==del1) 	 {	context=right1	};
-if (context==del2) 	 {	context=right2	};
-if (context==del3) 	 {	context=right3	};
-if (context==del4) 	 {	context=right4	};
-if (context==del5) 	 {	context=right5	};
+  if (context==del1) 	 {	context=right1	};
+  if (context==del2) 	 {	context=right2	};
+  if (context==del3) 	 {	context=right3	};
+  if (context==del4) 	 {	context=right4	};
+  if (context==del5) 	 {	context=right5	};
 
 	//context=right1;
-checkdels(imgCount,context);
-if (imgCount<2) {
-context.style.opacity=".2";					//do smth with it;
-} else {
-context.style.opacity="1";
-}	
-for (var r=0; r<pic.length; r++) {
- if (pic[r].src.slice(-11)=="default.jpg") break;
+  checkdels(imgCount,context);
+  if (imgCount<2) {
+	context.style.opacity=".2";					//do smth with it;
+  } else {
+	//alert("else");
+	//alert(context.id);
+	context.style.opacity="1";
+  }	
+  for (var r=0; r<pic.length; r++) {
+	if (pic[r].src.slice(-11)=="default.jpg") break;
+  }
+  r=r-1;
+  if (r==focusedImg) {
+	context.style.opacity=".2";	//context? ><
+  } 	
 }
-r=r-1;
- if (r==focusedImg) {
-context.style.opacity=".2";	//context? ><
-} 	
-	}
 
-	function lunactive (x,context) {		//anch6;
-// switch failed. Why?
-if (context==right1) {	context=left1	};
-if (context==right2) {	context=left2	};
-if (context==right3) {	context=left3	};
-if (context==right4) {	context=left4	};
-if (context==right5) {	context=left5	};
-if (context==del1) 	 {	context=left1	};
-if (context==del2) 	 {	context=left2	};
-if (context==del3) 	 {	context=left3	};
-if (context==del4) 	 {	context=left4	};
-if (context==del5) 	 {	context=left5	};
-//alert("left-context: "+context.id);
-if (x==0) {
-context.style.opacity=".2";				//left1~context;
-} else {context.style.opacity="1";	}
-	}
+function lunactive (x,context) {		//anch6;
+	// switch failed. Why?
+  if (context==right1) {	context=left1	};
+  if (context==right2) {	context=left2	};
+  if (context==right3) {	context=left3	};
+  if (context==right4) {	context=left4	};
+  if (context==right5) {	context=left5	};
+  if (context==del1) 	 {	context=left1	};
+  if (context==del2) 	 {	context=left2	};
+  if (context==del3) 	 {	context=left3	};
+  if (context==del4) 	 {	context=left4	};
+  if (context==del5) 	 {	context=left5	};
+	//alert("left-context: "+context.id);
+  if (x==0) {
+	context.style.opacity=".2";				//left1~context;
+  } else {
+	context.style.opacity="1";	
+  }
+}
 
-var makeClick=function (pic,minipic,colored) {
-var imgCount=0;	// closure
-var h=0;
-var x=0; 
-var focusedImg=0;
-var afterFocusedImg=0;
-var context;	// for transfer 'this' inside other func; 
-	function clicked (jval,jjval,xvalue) {
-focusedImg+=jval;
-afterFocusedImg+=jjval;
-x+=xvalue;
-}
-return {
-	increment: function () {
-context=this;		// for transfer 'this' inside func;
-var source=pic[focusedImg+1].src.slice(-11);
-if (!!pic[afterFocusedImg+2]) {
-var source2=pic[afterFocusedImg+2].src.slice(-11);
-}
-if (source!="default.jpg") {
-clicked(1,1,-147);
-colored.style.left=x+"px";
-}
- if (source2=="default.jpg") {
-this.style.opacity=".2";
-}
- if (x==-735) {
-this.style.opacity=".2";
-}
-lunactive (x,context);
-shift (pic,minipic,focusedImg);	
-	},
-	decrement: function () {		
-context=this;
-if (x<0) {
-clicked(-1,-1,147);
-colored.style.left=x+"px";
-shift(pic,minipic,focusedImg);
-lunactive(x,context);
-runactive(pic,x,imgCount,focusedImg,context);
-}
-	},
+var makeClick=function (pic,minipic,colored,apps) {
+  
+  var imgCount=0;										   // closure
+  var h=0;												   // look description in begging
+  var x=0; 			
+  var focusedImg=0;
+  var afterFocusedImg=0;
+  var context;											   // for transfer 'this' inside other func; 
+  
+  function clicked (jval,jjval,xvalue) {
+	focusedImg+=jval;
+	afterFocusedImg+=jjval;
+	x+=xvalue;
+  }
+ return {
+  increment: function () {
+	context=this;											   // for transfer 'this' inside func;
+	var source=pic[focusedImg+1].src.slice(-11);
+	if (!!pic[afterFocusedImg+2]) {
+	  var source2=pic[afterFocusedImg+2].src.slice(-11);
+	}
+	if (source!="default.jpg") {
+	  clicked(1,1,-147);
+	  colored.style.left=x+"px";
+	}
+	if (source2=="default.jpg") {
+	  this.style.opacity=".2";
+	}
+	if (x==-735) {
+	  this.style.opacity=".2";
+	}
+  lunactive (x,context);
+  shift (pic,minipic,focusedImg);	
+  },	// end of increment;
+  
+  decrement: function () {		
+	context=this;
+	if (x<0) {
+	  clicked(-1,-1,147);
+	  colored.style.left=x+"px";
+	  shift(pic,minipic,focusedImg);
+	  lunactive(x,context);
+	  runactive(pic,x,imgCount,focusedImg,context);
+	}
+  },	// end of decrement;
+
 /*
 if (file1.value.substr(3,8)=="fakepath") {
 var url=file1.value.substr(12);
@@ -532,189 +731,223 @@ else {
 url=file1.value;
 }
 */
-	add: function () {	
+
+  add: function () {	
 	function clear () {
-setTimeout(function () {
-path.value=""}, 1000);	
+	  setTimeout(function () {
+	  path.value=""}, 1000);	
 	}
-//context=this;
-//alert(context);	
-//if (event.keyCode=="13") {
-var myimg=new Image();	
-
-var wrongStr="Не поддерживаемый формат файла";
-var str="";	
-//if (path.value.length<4) {path.value=""; return	} 
-str=path.value.slice(-4);
-/*
-if (path.value=="red") {					//anch02
-alert(h);
-apps[h].style.backgroundColor="red";
-h++;
-};	
-*/
-if (path.value.slice(-5).toLowerCase()==".jpeg") {
-	myimg.src=path.value;
-pic[h].src=myimg.src;
-minipic[h].src=myimg.src;
-} else {
-switch (str.toLowerCase()) {
-case ".bmp" : 
-case ".jpg" : 
-case ".gif" : 
-case ".png" : 
-	myimg.src=path.value;
-pic[h].src=myimg.src;
-minipic[h].src=myimg.src;
-//alert(pic.id);
-break;
-default : path.value=wrongStr; clear(); return
-}
+	//context=this;
+	//alert(context);	
+	//if (event.keyCode=="13") {
+    var myimg=new Image();	
+    var wrongStr="Не поддерживаемый формат файла";
+    var str="";	
+	//if (path.value.length<4) {path.value=""; return	} 
+    str=path.value.slice(-4);
+	//if ( path.value.indexOf!="/" && path.value.indexOf!="\" ) 
+    if (path.value.length < 20) {						//anch02
+	  apps[h].style.backgroundColor=path.value;
+	  if (apps[h].style.backgroundColor) {
+	    minipic[h].src="tile.jpg";
+	    minipic[h].style.opacity=0;
+	    pic[h].src="tile.jpg";
+		h++; 
+		imgCount++;
+	    path.value="";
+	    path.focus();
+	    shift(pic,minipic,focusedImg);
+	    runactive(pic,x,imgCount,focusedImg,context);
+	    return;
+	  } 
+    }
+    if (path.value.slice(-5).toLowerCase()==".jpeg") {
+	  myimg.src=path.value;
+	  pic[h].src=myimg.src;
+	  minipic[h].src=myimg.src;
+	  minipic[imgCount].style.opacity=1;
+    } else {
+	  switch (str.toLowerCase()) {
+	  case ".bmp" : 
+	  case ".jpg" : 
+	  case ".gif" : 
+	  case ".png" : 
+	    myimg.src=path.value;
+	    pic[h].src=myimg.src;
+	    minipic[h].src=myimg.src;
+	    minipic[imgCount].style.opacity=1;
+	  //alert(pic.id);
+	  break;
+	  default :
+	    path.value=wrongStr;
+	    clear();
+	  return
+      }
 	}
-//improved for resize (fix)
-  pic[h].style.marginTop=0;
-  minipic[h].style.marginTop=0;
-  pic[h].style.marginLeft=0;
-  minipic[h].style.marginLeft=0;
+// resize fix:
+	pic[h].style.marginTop=0;
+	minipic[h].style.marginTop=0;
+	pic[h].style.marginLeft=0;
+	minipic[h].style.marginLeft=0;
 //
-	var timer=setTimeout(function () { 		//delay for Chrome;
-if (myimg.width==myimg.height) {
-pic[h].width="144";     
-pic[h].height="144";
-minipic[h].width="72";
-minipic[h].height="72";
-} else {			 //anch12				/// resizing images
-if (myimg.width > myimg.height) {
-  var minidif=myimg.height/72;
-  minipic[h].height=72;
-  var miniReducedWidth=myimg.width/minidif;
-  minipic[h].width=miniReducedWidth;
-  var minipad=(miniReducedWidth-72)/2;
-  minipic[h].style.marginLeft=-minipad+"px";
+    var timer=setTimeout(function () { 					   //delay for Chrome ( .5s);
+	  if (myimg.width==myimg.height) {
+	    pic[h].width="144";     
+	    pic[h].height="144";
+	    minipic[h].width="72";
+	    minipic[h].height="72";
+	  } else {			 								   // resize images
+		// horizontal picture:
+	    if (myimg.width > myimg.height) {
+		  var minidif=myimg.height/72;
+		  minipic[h].height=72;
+		  var miniReducedWidth=myimg.width/minidif;
+		  minipic[h].width=miniReducedWidth;
+		  var minipad=(miniReducedWidth-72)/2;
+		  minipic[h].style.marginLeft=-minipad+"px";
 
-  var dif=myimg.height/144;
-  pic[h].height=144;
-  //pic[h].width=myimg.width/dif;
-  var reducedWidth=myimg.width/dif
-  pic[h].width=reducedWidth;
-  var pad=(reducedWidth-144)/2;
-  pic[h].style.marginLeft=-pad+"px";  
-  
-} else {
-  var miniproport=myimg.width/72;
-  minipic[h].width=72;
-  var miniReducedHeight=myimg.height/miniproport;
-  minipic[h].height=miniReducedHeight;
-  var miniVertPad=(miniReducedHeight-72)/2;
-  minipic[h].style.marginTop=-miniVertPad+"px";
+		  var dif=myimg.height/144;
+		  pic[h].height=144;
+		  //pic[h].width=myimg.width/dif;
+		  var reducedWidth=myimg.width/dif
+		  pic[h].width=reducedWidth;
+		  var pad=(reducedWidth-144)/2;
+		  pic[h].style.marginLeft=-pad+"px";  
+		  // vertical picture:
+	    } else {
+		  var miniproport=myimg.width/72;
+		  minipic[h].width=72;
+		  var miniReducedHeight=myimg.height/miniproport;
+		  minipic[h].height=miniReducedHeight;
+		  var miniVertPad=(miniReducedHeight-72)/2;
+		  minipic[h].style.marginTop=-miniVertPad+"px";
 
-  var proport=myimg.width/144;
-  pic[h].width=144;
-  var reducedHeight=myimg.height/proport;
-  pic[h].height=reducedHeight;
-  var vertPad=(reducedHeight-144)/2;
-  pic[h].style.marginTop=-vertPad+"px";   
-}
-	}
-h++;
-path.value="";			//how back line? incorrect question;
-path.focus();
-	},500);		// end of timeout
-++imgCount;	
-	shift(pic,minipic,focusedImg);
-	runactive(pic,x,imgCount,focusedImg,context);
-		},
-	del: function () {			
-context=this;
-var beforeCount=0;
-var aftercount=0;
-var fullcount=0;
-for (var k=minipic.length-1; k>-1; k--) {					
-if (minipic[k].style.border=="3px solid dodgerblue" || minipic[k].style.border=="3px solid blue") {  	//anch2
-	minipic[k].src="default.jpg";							
-minipic[k].style.border="3px solid transparent";								
-if (k<=focusedImg) {beforeCount+=1} else {aftercount+=1;}					
-fullcount=beforeCount+aftercount;
-//alert("fullcount - "+fullcount);
-//alert("imgCount - "+imgCount);
-for (var p=k; p<minipic.length-1; p++) {
-minipic[p].src=minipic[p+1].src;
-pic[p].src=pic[p+1].src; 
-/// fix for shifting images
-minipic[p].width=minipic[p+1].width;
-minipic[p].height=minipic[p+1].height;
-minipic[p].style.marginLeft=minipic[p+1].style.marginLeft;
-minipic[p].style.marginTop=minipic[p+1].style.marginTop;
-//
-pic[p].width=pic[p+1].width;
-pic[p].height=pic[p+1].height;
-pic[p].style.marginLeft=pic[p+1].style.marginLeft;
-pic[p].style.marginTop=pic[p+1].style.marginTop;
-///
-}
-	minipic[5].src="default.jpg";
-	pic[5].src="default.jpg";
-}	
-	}
+		  var proport=myimg.width/144;
+		  pic[h].width=144;
+		  var reducedHeight=myimg.height/proport;
+		  pic[h].height=reducedHeight;
+		  var vertPad=(reducedHeight-144)/2;
+		  pic[h].style.marginTop=-vertPad+"px";   
+	    }
+	  }
+	  
+	h++;
+	path.value="";			
+    path.focus();
+    
+	}, 500);	// end of timeout
+    ++imgCount;	
+    shift(pic,minipic,focusedImg);
+    runactive(pic,x,imgCount,focusedImg,context);
+  },	
+
+  del: function () {			
+	context=this;
+	var beforeCount=0;		// pictures which were selected 'before' focusedImage;
+	var afterCount=0;		// 'after'
+	var fullCount=0;		// 'after' + 'before'
+	for (var j=minipic.length-1; j>-1; j--) {					
+	  if (minipic[j].style.border=="3px solid dodgerblue" || 
+	    minipic[j].style.border=="3px solid blue") {  	   			 //anch2
+		minipic[j].src="default.jpg";							
+		minipic[j].style.border="3px solid transparent";								
+		
+		if (j <= focusedImg) {	beforeCount+=1	} else {	afterCount+=1;	}					
+		fullCount=beforeCount+afterCount;
+		//alert("fullCount - "+fullCount);
+		//alert("imgCount - "+imgCount);
+		
+		for (var i=j; i<minipic.length-1; i++) {
+		  minipic[i].src=minipic[i+1].src;
+		  pic[i].src=pic[i+1].src; 
+		  // fix for shifting images:
+	      minipic[i].width=minipic[i+1].width;
+		  minipic[i].height=minipic[i+1].height;
+		  minipic[i].style.marginLeft=minipic[i+1].style.marginLeft;
+		  minipic[i].style.marginTop=minipic[i+1].style.marginTop;
+
+		  pic[i].width=pic[i+1].width;
+		  pic[i].height=pic[i+1].height;
+		  pic[i].style.marginLeft=pic[i+1].style.marginLeft;
+		  pic[i].style.marginTop=pic[i+1].style.marginTop;
+
+		}
+	    minipic[5].src="default.jpg";
+	    pic[5].src="default.jpg";
+	  }	
+    }
 	
-if (fullcount!=0) {
-	imgCount-=fullcount;
-if (beforeCount>0) {
-focusedImg=focusedImg-beforeCount;
-afterFocusedImg=afterFocusedImg-beforeCount; 
-if (focusedImg<0) {focusedImg=0; afterFocusedImg=1; x-=147;};
-for (var i=0; i<beforeCount; i++) {
-x+=147;
-colored.style.left=x+"px"; 
-}
-	}
-	h-=fullcount-1;
-		} 
-else {
+	if (fullCount!=0) {
+	  imgCount-=fullCount;
+	  if (beforeCount>0) {
+	    focusedImg=focusedImg-beforeCount;
+	    afterFocusedImg=afterFocusedImg-beforeCount; 
+	      if (focusedImg<0) {
+			focusedImg=0; 
+		    afterFocusedImg=1;
+		    x-=147;
+		  }
+		  for (var i=0; i<beforeCount; i++) {
+		  x+=147;
+		  colored.style.left=x+"px"; 
+		  }
+	  }
+	  h-=fullCount-1;
 
-if (imgCount>0) {
-imgCount=imgCount-1;					//decrease imgCount 	
-pic[imgCount].src="default.jpg"; 
-minipic[imgCount].src="default.jpg"; 
+    } else {
+	  if (imgCount>0) {
+	    imgCount=imgCount-1;					//decrease imgCount 	
+	    pic[imgCount].src="default.jpg"; 
+	    minipic[imgCount].src="default.jpg"; 
+	    //fix for bgColor;
+	    //apps[imgCount].style.border="3px solid black";	//anch03
+	    apps[imgCount].style.background="none";
+	    minipic[imgCount].style.opacity=0;
 
-if (imgCount==focusedImg) {
-if (focusedImg!=0) {
-x+=147;
-colored.style.left=x+"px";  }
-if (focusedImg>0) { 
-focusedImg=focusedImg-1; 
-afterFocusedImg=afterFocusedImg-1; 
-}
-	}
-		}
-			} 
-if (h>0) { h=h-1;}				//decrease h
-shift(pic,minipic,focusedImg);
-runactive(pic,x,imgCount,focusedImg,context);
-lunactive(x,context);
-
-if (imgCount==0) {
-minipic[0].style.border="3px solid transparent"; 
-}
-	}
-		}
-			}			
+	    if (imgCount==focusedImg) {
+		  if (focusedImg!=0) {
+		    x+=147;
+		    colored.style.left=x+"px";  
+		  }
+		  if (focusedImg>0) { 
+		    //focusedImg=focusedImg-1; 
+		    //afterFocusedImg=afterFocusedImg-1; 
+		  focusedImg--;
+		  afterFocusedImg--;
+		  }
+	    }
+	  }
+    } 
+	if ( h > 0 ) {	h=h-1	}				//decrease h
+	shift(pic,minipic,focusedImg);
+    runactive(pic,x,imgCount,focusedImg,context);
+    lunactive(x,context);
+    if (imgCount==0) {
+	  minipic[0].style.border="3px solid transparent"; 
+    }
+  }		// end of del.method();
+ }		// end of return {
+}		// end of 'makeClick' 	
+	
 	// events
-click1=makeClick(pic1,minipic1,colored1);
-click2=makeClick(pic2,minipic2,colored2);
-click3=makeClick(pic3,minipic3,colored3);
-click4=makeClick(pic4,minipic4,colored4);
-click5=makeClick(pic5,minipic5,colored5);
+click1=makeClick(pic1,minipic1,colored1,apps1);
+click2=makeClick(pic2,minipic2,colored2,apps2);
+click3=makeClick(pic3,minipic3,colored3,apps3);
+click4=makeClick(pic4,minipic4,colored4,apps4);
+click5=makeClick(pic5,minipic5,colored5,apps5);
+
 right1.onclick=click1.increment;
 right2.onclick=click2.increment;
 right3.onclick=click3.increment;
 right4.onclick=click4.increment;
 right5.onclick=click5.increment;
+
 left1.onclick=click1.decrement;
 left2.onclick=click2.decrement;
 left3.onclick=click3.decrement;
 left4.onclick=click4.decrement;
 left5.onclick=click5.decrement;
+
 del1.onclick=click1.del;
 del2.onclick=click2.del;
 del3.onclick=click3.del;
@@ -722,76 +955,88 @@ del4.onclick=click4.del;
 del5.onclick=click5.del;
 
 //ok1.onclick=function () {	  alert("es")	};
-for (var i=0; i<wins.length; i++) {
-wins[i].onclick=function () {
-path.focus();
-for (var i=0; i<wins.length; i++) 
-if (this.style.borderColor=="forestgreen") {f=true} else {f=false};
-paint();
-var f;
-if (f) {
-this.style.borderColor="white"; 
-} else {this.style.borderColor="forestgreen"}
-f=!f;
-}
+for (var i=0; i<wins.length; i++) {			// change borderColor onclick;
+  wins[i].onclick=function () {
+    path.focus();
+	for (var i=0; i<wins.length; i++) {
+	  if (this.style.borderColor=="forestgreen") {	
+	    toggle=true
+	  } else {
+	    toggle=false	
+	  }
+	} 
+	paint();
+      
+	var toggle;
+	if (toggle) {
+	  this.style.borderColor="white"; 
+	} else {
+    this.style.borderColor="forestgreen"
 	}
-path.onkeypress=function (event) { 			//anch11
-if (event.keyCode=="13") {
-event.preventDefault();
-if (wins[0].style.borderColor=="white") {
-//ok1.onclick=click1.add;
-click1.add();
-}		
-if (wins[1].style.borderColor=="white") {
-click2.add();
+  toggle=!toggle;
+  }
 }
-if (wins[2].style.borderColor=="white") {
-click3.add();
-}
-if (wins[3].style.borderColor=="white") {
-click4.add();
-}
-if (wins[4].style.borderColor=="white") {
-click5.add();
-}
-	}
-		}
 
-	function shift (pic,minipic,focusedImg) {		// focused element anch8
-for (var i=0; i<minipic.length; i++) {
-minipic[i].style.border="3px solid transparent"; }
-var source3=pic[focusedImg].src.slice(-11);
-if (source3!="default.jpg") {
-minipic[focusedImg].style.border="3px solid forestgreen"; }
+path.onkeypress=function (event) { 			//anch11
+  if (event.keyCode=="13") {
+	event.preventDefault();
+	if (wins[0].style.borderColor=="white") {
+	  //ok1.onclick=click1.add;
+	  click1.add();
+	}		
+	if (wins[1].style.borderColor=="white") {
+	  click2.add();
 	}
-//	function animateScriptStatus {
-var str="script is working";
-var inTimer=setInterval(animateText,800);
-var i=1;
-var stopme=0;
-	function animateText () {
-if (i<=str.length) {
-var arr=str.split("");
-arr.length=i;
-var str2=arr.join("");
-z.value=str2;
-i++;
-} else {
-i=1;
-stopme++;
-if (stopme==4) {clearInterval(inTimer)}
+	if (wins[2].style.borderColor=="white") {
+	  click3.add();
+	}
+	if (wins[3].style.borderColor=="white") {
+	  click4.add();
+	}
+	if (wins[4].style.borderColor=="white") {
+	  click5.add();
+	}
+  }
 }
-	}
+
+function shift (pic,minipic,focusedImg) {		// focused element anch8
+  for (var i=0; i<minipic.length; i++) {
+	minipic[i].style.border="3px solid transparent"; 
+  }
+  var source3=pic[focusedImg].src.slice(-11);
+  if (source3!="default.jpg") {
+	minipic[focusedImg].style.border="3px solid forestgreen"; 
+  }
+}
+//	function animateScriptStatus {
+var strScript="script is working";
+var inTimer=setInterval(animateText,800);
+var len=1;
+var stopme=0;
+
+function animateText () {
+  if (len<=strScript.length) {
+	var arr=strScript.split("");
+	arr.length=len;
+	var str2=arr.join("");
+	scriptCondition.value=str2;
+	len++;
+  } else {
+	len=1;
+	stopme++;
+	if (stopme==4) {clearInterval(inTimer)}
+  }
+}
 //		}
 //animateScriptStatus();		
 //document.onclick=function (event) {
 //crds.value+="\nx: "+event.screenX+"\n"+"y: "+event.screenY;
 //}	
-z.value="script is working";
+scriptCondition.value="script is working";
 //#FFFFFF = RGB(255,255,255) = white //not registered;
 //#FF0000 = red
 //#00FF00 = green
 //#0000FF = blue
-	}
+}	;	// end of window.onload!;
 </script>
 </html>
