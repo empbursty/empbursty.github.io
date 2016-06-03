@@ -28,7 +28,6 @@ img {
 	float: left;
 } 
 .window {
-	border-color: navy; 
 	border-style: solid;
 	border-width: 1px 3px;
 	display: inline-block;
@@ -42,7 +41,7 @@ img {
 .color {			/* 887px */
 	width: 889px; 
 /*	border: 0px solid red; 	*/
-	margin: -1px; 
+/*	margin: -2px; 			*/
 	position: relative;
 }				
 
@@ -147,11 +146,11 @@ background: lightsteelblue;
 		-webkit-user-select: none;
 	width: 480px;
 }
-
+/*
 .rside img {
-	border: 3px solid transparent;
-}
-
+	border: 0px solid transparent;
+}	
+*/
 .righter .del {
 	background: ghostwhite;
 	border: 1px solid forestgreen; 
@@ -175,14 +174,16 @@ background: lightsteelblue;
 /*#coords {background: khaki; resize: none; float: right; position: fixed; bottom: 60px; right: 9px; } */
 
 body {
-	background: gray url("look2.jpg") top center no-repeat;	
+	background: silver url("look3.jpg") top center no-repeat;
+	background-size: cover;
+/*	background: gray url("look2.jpg") top center no-repeat;	*/
 /*	background: gray url("http://csg24.ru/imag/2%2818%29.jpg") top center no-repeat;  */
 	margin: 0px;
 }
 
 * {
-	cursor: url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), 
-	url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;
+/*	cursor: url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), 
+	url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;		*/
 }
 
 #sdiv {
@@ -202,29 +203,31 @@ body {
 	resize: none; border-color: black; width: 497px; color: forestgreen; 
 }
 .color img[src*='default.jpg'], 
-.rside img[src*='default.jpg'] {
+.rside img[src*='tile.jpg'], 
+.color img[src*='tile.jpg'], 
+.rside img[src*='default.jpg'] 	{
 	opacity: 0;
 }
 
 .righter {
 	float: right; 
 }
-
-.color div {
-	border: 1px solid white; 
-	display: inline-block; 
-	height: 142px;
-	overflow: hidden; 
-	width: 141px; 
-}
-
+/*
+	.color div {
+		border: 1px solid white; 
+		display: inline-block; 
+		height: 142px;
+		overflow: hidden; 
+		width: 141px; 
+	}
+*/
 #superdiv {
 	left: 8%;
 	position: absolute;
 }
 
 h1 {
-	color: green;
+	color: forestgreen;
 	font-family: 'myFont';
 	font-size: 40px;
 	margin-left: 25%; 
@@ -253,12 +256,21 @@ h1 {
 	position: absolute;
 }
 
-.added1 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden;}
-.added2 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
-.added3 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
-.added4 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
-.added5 {background: ; width: 78px; height: 78px; display: inline-block; margin-right: ; overflow: hidden; }
-.newadded {}
+div[name*="div"] {
+	display: inline-block;
+	height: 142px;
+	overflow: hidden;
+	width: 141px;
+	margin-right: 2px;
+/*	float: left;	*/
+}
+
+.added1 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; margin-top: 0px !important ;}
+.added2 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
+.added3 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
+.added4 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
+.added5 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
+.newadded { border: 3px solid transparent; margin-top: -5px; }
 </style>
 <link rel="icon" href="icon.ico" type="image/x-icon"> 
 </head>
@@ -281,12 +293,12 @@ h1 {
 
 <div class="window" id="topwindow" name="window">									<!-- okno prosmotra -->
 <div class="color" id="color1">
-<div><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
-<div><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
-<div><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
-<div><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
-<div><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
-<div><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
+<div name="firstdiv"><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
+<div name="firstdiv"><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
+<div name="firstdiv"><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
+<div name="firstdiv"><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
+<div name="firstdiv"><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
+<div name="firstdiv"><img name="first" width="144" height="144" src="default.jpg" alt="."></div>
 </div>
 </div>
 
@@ -306,15 +318,15 @@ h1 {
 
 <div class="window" name="window">
 <div class="color" id="color2">
-<div><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="seconddiv"><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="seconddiv"><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="seconddiv"><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="seconddiv"><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="seconddiv"><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="seconddiv"><img name="second" src="default.jpg" width="144" height="144" alt="."></div>
 </div>
 </div>
-<div class="outarrow" id="outrb2" style="transform: rotate(180deg); margin-right: 0px;box-shadow: -3px -3px 2px 2px;">		<!-- strelka vpravo -->
+<div class="outarrow" id="outrb2" style="transform: rotate(180deg); margin-right: 0px; box-shadow: -3px -3px 2px 2px;">		<!-- strelka vpravo -->
 <div class="arrow">
 	<div class="inarrow"> </div>
 </div>
@@ -330,12 +342,12 @@ h1 {
 
 <div class="window" name="window">
 <div class="color" id="color3">
-<div><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="thirddiv"><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="thirddiv"><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="thirddiv"><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="thirddiv"><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="thirddiv"><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="thirddiv"><img name="third" src="default.jpg" width="144" height="144" alt="."></div>
 </div>
 </div>
 <div class="outarrow" id="outrb3" style="transform: rotate(180deg); margin-right: 0px; box-shadow: -3px -3px 2px 2px;">		<!-- strelka vpravo -->
@@ -354,12 +366,13 @@ h1 {
 
 <div class="window" name="window">
 <div class="color" id="color4">
-<div><img name="fouth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fouth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fouth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fouth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fouth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fouth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fourthdiv"><img name="fourth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fourthdiv"><img name="fourth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fourthdiv"><img name="fourth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fourthdiv"><img name="fourth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fourthdiv"><img name="fourth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fourthdiv"><img name="fourth" src="default.jpg" width="144" height="144" alt="."></div>
+
 </div>
 </div>
 <div class="outarrow" id="outrb4" style="transform: rotate(180deg);  margin-right: 0px; box-shadow: -3px -3px 2px 2px;">		<!-- strelka vpravo -->
@@ -378,12 +391,12 @@ h1 {
 
 <div class="window" name="window">
 <div class="color" id="color5">
-<div><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
-<div><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fifthdiv"><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fifthdiv"><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fifthdiv"><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fifthdiv"><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fifthdiv"><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
+<div name="fifthdiv"><img name="fifth" src="default.jpg" width="144" height="144" alt="."></div>
 </div>
 </div>
 <div class="outarrow" id="outrb5" style="transform: rotate(180deg); margin-right: 0px; box-shadow: -3px -3px 2px 2px;">		<!-- strelka vpravo -->
@@ -400,47 +413,48 @@ h1 {
 <input type="file" maxlength="16" size="16" value="left: " id="file1"><br>
 <input type="button" value="Remember IMG" id="ok1"><br>
 -->
-<h1> Colored View </h1>
-<span id="desc">Вставьте ссылку на изображение в поле ниже и нажмите 'Enter'</span><br>
+<h1>Colo<text style="color: red">red</text> View</h1>
+<span id="desc">Вставьте ссылку на изображение или введите название цвета <br> 
+(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter'</span><br>
 <textarea id="way"></textarea><hr>
 <!--</div>
 </div> -->	
 <div class="rside">
 
-<img name="minifirst" src="default.jpg" width="72" height="72" alt=".">
-<img name="minifirst" src="default.jpg" width="72" height="72" alt=".">
-<img name="minifirst" src="default.jpg" width="72" height="72" alt=".">
-<img name="minifirst" src="default.jpg" width="72" height="72" alt=".">
-<img name="minifirst" src="default.jpg" width="72" height="72" alt=".">
-<img name="minifirst" src="default.jpg" width="72" height="72" alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
 
-<img name="minisecond" src="default.jpg" width="72" height="72" alt="">
-<img name="minisecond" src="default.jpg" width="72" height="72" alt="">
-<img name="minisecond" src="default.jpg" width="72" height="72" alt="">
-<img name="minisecond" src="default.jpg" width="72" height="72" alt="">
-<img name="minisecond" src="default.jpg" width="72" height="72" alt="">
-<img name="minisecond" src="default.jpg" width="72" height="72" alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
 
-<img name="minithird" src="default.jpg" width="72" height="72" alt="">
-<img name="minithird" src="default.jpg" width="72" height="72" alt="">
-<img name="minithird" src="default.jpg" width="72" height="72" alt="">
-<img name="minithird" src="default.jpg" width="72" height="72" alt="">
-<img name="minithird" src="default.jpg" width="72" height="72" alt="">
-<img name="minithird" src="default.jpg" width="72" height="72" alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
 
-<img name="minifouth" src="default.jpg" width="72" height="72" alt="">
-<img name="minifouth" src="default.jpg" width="72" height="72" alt="">
-<img name="minifouth" src="default.jpg" width="72" height="72" alt="">
-<img name="minifouth" src="default.jpg" width="72" height="72" alt="">
-<img name="minifouth" src="default.jpg" width="72" height="72" alt="">
-<img name="minifouth" src="default.jpg" width="72" height="72" alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
 
-<img name="minififth" src="default.jpg" width="72" height="72" alt="">
-<img name="minififth" src="default.jpg" width="72" height="72" alt="">
-<img name="minififth" src="default.jpg" width="72" height="72" alt="">
-<img name="minififth" src="default.jpg" width="72" height="72" alt="">
-<img name="minififth" src="default.jpg" width="72" height="72" alt="">
-<img name="minififth" src="default.jpg" width="72" height="72" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
 </div>	
 
 <div class="righter">
@@ -478,51 +492,65 @@ h1 {
 <noscript>JavaScript is disabled</noscript>
 <script type="text/javascript">
 window.onload=function () {
-scriptCondition=document.getElementById("check1");
+var scriptCondition=document.getElementById("check1");
 //crds=document.getElementById("coords");
 //alerted=document.getElementById("alerted");
-left1=document.getElementById("outlb1");
-left2=document.getElementById("outlb2");
-left3=document.getElementById("outlb3");
-left4=document.getElementById("outlb4");
-left5=document.getElementById("outlb5");
-right1=document.getElementById("outrb1");
-right2=document.getElementById("outrb2");
-right3=document.getElementById("outrb3");
-right4=document.getElementById("outrb4");
-right5=document.getElementById("outrb5");
-colored1=document.getElementById("color1");
-colored2=document.getElementById("color2");
-colored3=document.getElementById("color3");
-colored4=document.getElementById("color4");
-colored5=document.getElementById("color5");
+var left1=document.getElementById("outlb1");
+var left2=document.getElementById("outlb2");
+var left3=document.getElementById("outlb3");
+var left4=document.getElementById("outlb4");
+var left5=document.getElementById("outlb5");
+var right1=document.getElementById("outrb1");
+var right2=document.getElementById("outrb2");
+var right3=document.getElementById("outrb3");
+var right4=document.getElementById("outrb4");
+var right5=document.getElementById("outrb5");
+var colored1=document.getElementById("color1");
+var colored2=document.getElementById("color2");
+var colored3=document.getElementById("color3");
+var colored4=document.getElementById("color4");
+var colored5=document.getElementById("color5");
 //ok1=document.getElementById("ok1");
 //file1=document.getElementById("file1");
-pic1=document.getElementsByName("first");
-pic2=document.getElementsByName("second");
-pic3=document.getElementsByName("third");
-pic4=document.getElementsByName("fouth");
-pic5=document.getElementsByName("fifth");
-minipic1=document.getElementsByName("minifirst");
-minipic2=document.getElementsByName("minisecond");
-minipic3=document.getElementsByName("minithird");
-minipic4=document.getElementsByName("minifouth");
-minipic5=document.getElementsByName("minififth");
-wins=document.getElementsByName("window");
-del1=document.getElementById("del1");
-del2=document.getElementById("del2");
-del3=document.getElementById("del3");
-del4=document.getElementById("del4");
-del5=document.getElementById("del5");
-dels=document.getElementsByName("del");
-path=document.getElementById("way");
-images=document.images;
-rside=document.getElementsByClassName("rside")[0];
-rimgs=rside.getElementsByTagName("img");
+var pic1=document.getElementsByName("first");
+var pic2=document.getElementsByName("second");
+var pic3=document.getElementsByName("third");
+var pic4=document.getElementsByName("fourth");
+var pic5=document.getElementsByName("fifth");
+var view1=document.getElementsByName("firstdiv");
+var view2=document.getElementsByName("seconddiv");
+var view3=document.getElementsByName("thirddiv");
+var view4=document.getElementsByName("fourthdiv");
+var view5=document.getElementsByName("fifthdiv");
+var minipic1=document.getElementsByName("minifirst");
+var minipic2=document.getElementsByName("minisecond");
+var minipic3=document.getElementsByName("minithird");
+var minipic4=document.getElementsByName("minifourth");
+var minipic5=document.getElementsByName("minififth");
+var wins=document.getElementsByName("window");
+var del1=document.getElementById("del1");
+var del2=document.getElementById("del2");
+var del3=document.getElementById("del3");
+var del4=document.getElementById("del4");
+var del5=document.getElementById("del5");
+var dels=document.getElementsByName("del");
+var path=document.getElementById("way");
+var images=document.images;
+var rside=document.getElementsByClassName("rside")[0];
+var rimgs=rside.getElementsByTagName("img");
+var newviews=document.querySelectorAll("div[name*='div']");
+var arrow=document.getElementsByClassName("outarrow");
 
+for (var i=0; i<newviews.length; i++) {
+  newviews[i].onmouseover=function () {
+    if (this.style.backgroundColor!="transparent" && this.style.backgroundColor!="initial") {
+	  this.title=this.style.backgroundColor;
+	}
+  }
+}
 /**
   x: x-coordinate;
-  h: index of added minipic
+  h: index of added minipic;
 */
 
 var diff=6;
@@ -541,10 +569,15 @@ var apps2=document.getElementsByClassName("added2");
 var apps3=document.getElementsByClassName("added3");
 var apps4=document.getElementsByClassName("added4");
 var apps5=document.getElementsByClassName("added5");
-var newapps=document.getElementsByClassName("newadded");
+var newapps=document.getElementsByClassName("newadded");	//anch05
 
 for (var i=0; i<newapps.length; i++) {
   newapps[i].appendChild(rimgs[i]);
+  newapps[i].onmouseover=function () {
+    if (this.style.backgroundColor!="transparent" && this.style.backgroundColor!="initial") {
+      this.title=this.style.backgroundColor;	
+    }
+  }
 }
 
 path.focus();
@@ -556,10 +589,16 @@ path.onkeypress=function (event) {
 
 for (var i=0; i<dels.length; i++) {
   dels[i].onmouseover=function () {
-  this.style.background="lightsteelblue"
+    this.style.background="lightsteelblue"
   }
   dels[i].onmouseout=function () {
-  this.style.background="ghostwhite"
+    this.style.background="ghostwhite"
+  }
+  dels[i].onmousedown=function () {
+    this.style.boxShadow="none"; 
+  }
+  dels[i].onmouseup=function () {
+    this.style.boxShadow="2px 0 1px 1px";
   }
 }
 
@@ -569,7 +608,7 @@ function paint () {
   }
 }
 paint();
-wins[0].style.borderColor="white"; 			// default 1st window;
+//wins[0].style.borderColor="white"; 			// default 1st window;
 
 for (var j=0; j<dels.length; j++)
   dels[j].style.opacity=".4";
@@ -586,13 +625,17 @@ function checkdels (imgCount,context) {				//anch5
   context.style.opacity=".4"
   }
 }	
-
-function selectMinipics (minipic) {						   //anch10
-  for (var i=0; i<minipic.length; i++) {
-    minipic[i].onclick=function () {
-	  var ministr=this.src;
-	  if (ministr.slice(-11)!="default.jpg") {
-	    if (this.style.border=="3px solid transparent") {
+/*
+function selectApps (apps) {
+  for (var i=0; i<apps.length; i++) {
+    apps[i].onclick=function () {
+//    apps[i].onclick=function () {
+	//alert(minipic[i].src);
+//	  var ministr=minipic[j].src;
+//	  if (ministr.slice(-11)!="default.jpg") {
+//	  if (minipic.slice(-11)!="default.jpg") {
+	  if (this.style.backgroundColor) {
+		if (this.style.border=="3px solid transparent") {
 	      this.style.border="3px solid dodgerblue";
 	      return;
 	    }
@@ -610,12 +653,50 @@ function selectMinipics (minipic) {						   //anch10
     }
   }
 }
-
-selectMinipics(minipic1); // execute;
-selectMinipics(minipic2); // execute;
-selectMinipics(minipic3); // execute;
-selectMinipics(minipic4); // execute;
-selectMinipics(minipic5); // execute;
+*/
+function selectMinipics (minipic, apps) {						   //anch10
+  for (var i=0; i<minipic.length; i++) {
+    minipic[i].onclick=function () {
+	  var ministr=this.src;
+//	  if (ministr.slice(-11)!="default.jpg") {
+		for (var i=0; i<apps.length; i++) {
+		  apps[i].onclick=function () {
+		    if (this.style.backgroundColor && 
+			  this.style.backgroundColor!="transparent" ||
+		      ministr.slice(-11)!="default.jpg") {
+		      if (this.style.border=="3px solid transparent") {
+	            this.style.border="3px solid dodgerblue";
+	            return;
+	          }
+	          if (this.style.border=="3px solid dodgerblue") {
+	            this.style.border="3px solid transparent"
+				}	
+			  if (this.style.border=="3px solid forestgreen") {
+				this.style.border="3px solid blue";
+				return;	
+			  } 
+			  if (this.style.border=="3px solid blue") { 
+				this.style.border="3px solid forestgreen";
+			  } 
+			}
+		  }
+		}
+//}
+	}
+  }
+}
+/*	
+selectApps(apps1); // execute;
+selectApps(apps2); // execute;
+selectApps(apps3); // execute;
+selectApps(apps4); // execute;
+selectApps(apps5); // execute;
+*/
+selectMinipics(minipic1, apps1); // execute;
+selectMinipics(minipic2, apps2); // execute;
+selectMinipics(minipic3, apps3); // execute;
+selectMinipics(minipic4, apps4); // execute;
+selectMinipics(minipic5, apps5); // execute;
 
 function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
 //if (context==ok1) {
@@ -677,7 +758,7 @@ function lunactive (x,context) {		//anch6;
   }
 }
 
-var makeClick=function (pic,minipic,colored,apps) {
+var makeClick=function (pic,minipic,colored,apps,views) {
   
   var imgCount=0;										   // closure
   var h=0;												   // look description in begging
@@ -686,10 +767,10 @@ var makeClick=function (pic,minipic,colored,apps) {
   var afterFocusedImg=0;
   var context;											   // for transfer 'this' inside other func; 
   
-  function clicked (jval,jjval,xvalue) {
-	focusedImg+=jval;
-	afterFocusedImg+=jjval;
-	x+=xvalue;
+  function clicked (stepFocusedImage,stepAfterFocusedImage,xStep) {
+	focusedImg+=stepFocusedImage;
+	afterFocusedImg+=stepAfterFocusedImage;
+	x+=xStep;
   }
  return {
   increment: function () {
@@ -709,7 +790,7 @@ var makeClick=function (pic,minipic,colored,apps) {
 	  this.style.opacity=".2";
 	}
   lunactive (x,context);
-  shift (pic,minipic,focusedImg);	
+  shift (pic,apps,focusedImg);	
   },	// end of increment;
   
   decrement: function () {		
@@ -717,7 +798,7 @@ var makeClick=function (pic,minipic,colored,apps) {
 	if (x<0) {
 	  clicked(-1,-1,147);
 	  colored.style.left=x+"px";
-	  shift(pic,minipic,focusedImg);
+	  shift(pic,apps,focusedImg);
 	  lunactive(x,context);
 	  runactive(pic,x,imgCount,focusedImg,context);
 	}
@@ -735,28 +816,30 @@ url=file1.value;
   add: function () {	
 	function clear () {
 	  setTimeout(function () {
-	  path.value=""}, 1000);	
+	  path.value=""}, 1500);	
 	}
 	//context=this;
 	//alert(context);	
 	//if (event.keyCode=="13") {
     var myimg=new Image();	
-    var wrongStr="Не поддерживаемый формат файла";
+    var wrongStr="Не поддерживаемый формат файла или цвет"+"\n"+"Incorrect file format or color";
     var str="";	
 	//if (path.value.length<4) {path.value=""; return	} 
     str=path.value.slice(-4);
 	//if ( path.value.indexOf!="/" && path.value.indexOf!="\" ) 
     if (path.value.length < 20) {						//anch02
 	  apps[h].style.backgroundColor=path.value;
-	  if (apps[h].style.backgroundColor) {
+	  views[h].style.backgroundColor=path.value;
+	  if (apps[h].style.backgroundColor && 
+		  apps[h].style.backgroundColor!="transparent" &&
+		  apps[h].style.backgroundColor!="initial") { 
 	    minipic[h].src="tile.jpg";
-	    minipic[h].style.opacity=0;
 	    pic[h].src="tile.jpg";
 		h++; 
-		imgCount++;
+		imgCount++;										// replicating code (fix it)
 	    path.value="";
 	    path.focus();
-	    shift(pic,minipic,focusedImg);
+	    shift(pic,apps,focusedImg);
 	    runactive(pic,x,imgCount,focusedImg,context);
 	    return;
 	  } 
@@ -765,7 +848,7 @@ url=file1.value;
 	  myimg.src=path.value;
 	  pic[h].src=myimg.src;
 	  minipic[h].src=myimg.src;
-	  minipic[imgCount].style.opacity=1;
+
     } else {
 	  switch (str.toLowerCase()) {
 	  case ".bmp" : 
@@ -775,7 +858,7 @@ url=file1.value;
 	    myimg.src=path.value;
 	    pic[h].src=myimg.src;
 	    minipic[h].src=myimg.src;
-	    minipic[imgCount].style.opacity=1;
+//	    minipic[imgCount].style.opacity=1;
 	  //alert(pic.id);
 	  break;
 	  default :
@@ -789,8 +872,9 @@ url=file1.value;
 	minipic[h].style.marginTop=0;
 	pic[h].style.marginLeft=0;
 	minipic[h].style.marginLeft=0;
-//
-    var timer=setTimeout(function () { 					   //delay for Chrome ( .5s);
+//  	
+    myimg.onload=function () {
+//    var timer=setTimeout(function () { 					   //delay for Chrome ( .5s);
 	  if (myimg.width==myimg.height) {
 	    pic[h].width="144";     
 	    pic[h].height="144";
@@ -834,10 +918,10 @@ url=file1.value;
 	h++;
 	path.value="";			
     path.focus();
-    
-	}, 500);	// end of timeout
+//	}, 500);	// end of timeout
+    }	//end of myimg.onload;
     ++imgCount;	
-    shift(pic,minipic,focusedImg);
+    shift(pic,apps,focusedImg);
     runactive(pic,x,imgCount,focusedImg,context);
   },	
 
@@ -847,19 +931,28 @@ url=file1.value;
 	var afterCount=0;		// 'after'
 	var fullCount=0;		// 'after' + 'before'
 	for (var j=minipic.length-1; j>-1; j--) {					
-	  if (minipic[j].style.border=="3px solid dodgerblue" || 
-	    minipic[j].style.border=="3px solid blue") {  	   			 //anch2
-		minipic[j].src="default.jpg";							
-		minipic[j].style.border="3px solid transparent";								
+	  if (apps[j].style.border=="3px solid dodgerblue" || 
+	      apps[j].style.border=="3px solid blue") {  	   			 //anch2
+		minipic[j].src="default.jpg";	
+		apps[j].style.backgroundColor="transparent";	
+		apps[j].title="";
+		apps[j].style.border="3px solid transparent";
+		views[j].style.backgroundColor="transparent";
+		views[j].title="";
+		views[j].src="default.jpg";
 		
 		if (j <= focusedImg) {	beforeCount+=1	} else {	afterCount+=1;	}					
 		fullCount=beforeCount+afterCount;
-		//alert("fullCount - "+fullCount);
-		//alert("imgCount - "+imgCount);
+				  // bgColor fix:
+		for (var i=j; i<apps.length-1; i++) {
+		  apps[i].style.backgroundColor=apps[i+1].style.backgroundColor;
+		  views[i].style.backgroundColor=views[i+1].style.backgroundColor;
+		}  
 		
 		for (var i=j; i<minipic.length-1; i++) {
 		  minipic[i].src=minipic[i+1].src;
-		  pic[i].src=pic[i+1].src; 
+		  pic[i].src=pic[i+1].src;
+		  
 		  // fix for shifting images:
 	      minipic[i].width=minipic[i+1].width;
 		  minipic[i].height=minipic[i+1].height;
@@ -874,6 +967,8 @@ url=file1.value;
 		}
 	    minipic[5].src="default.jpg";
 	    pic[5].src="default.jpg";
+		apps[5].style.backgroundColor="transparent";
+//		views[5].style.backgroundCOlor="transparent";
 	  }	
     }
 	
@@ -901,8 +996,10 @@ url=file1.value;
 	    minipic[imgCount].src="default.jpg"; 
 	    //fix for bgColor;
 	    //apps[imgCount].style.border="3px solid black";	//anch03
-	    apps[imgCount].style.background="none";
-	    minipic[imgCount].style.opacity=0;
+		//apps[imgCount].style.backgroundColor="transparent";
+		apps[imgCount].style.background="none";
+		apps[imgCount].title="";
+		views[imgCount].title="";
 
 	    if (imgCount==focusedImg) {
 		  if (focusedImg!=0) {
@@ -919,22 +1016,77 @@ url=file1.value;
 	  }
     } 
 	if ( h > 0 ) {	h=h-1	}				//decrease h
-	shift(pic,minipic,focusedImg);
+	shift(pic,apps,focusedImg);
     runactive(pic,x,imgCount,focusedImg,context);
     lunactive(x,context);
     if (imgCount==0) {
-	  minipic[0].style.border="3px solid transparent"; 
+	  minipic[0].style.border="0px solid transparent"; 	//?
+	  views[0].style.background="none";
     }
+	path.focus();
   }		// end of del.method();
  }		// end of return {
 }		// end of 'makeClick' 	
+
+document.onkeyup=function (event) {	
+  if (event.keyCode==39) {
+    path.focus();
+    if (wins[0].style.borderColor=="white") {
+ 	  right1.click();
+ 	} else
+	if (wins[1].style.borderColor=="white") {
+ 	  right2.click();
+ 	} else
+	if (wins[2].style.borderColor=="white") {
+ 	  right3.click();
+ 	} else
+	if (wins[3].style.borderColor=="white") {
+ 	  right4.click();
+ 	} else
+	if (wins[4].style.borderColor=="white") {
+ 	  right5.click();
+ 	}
+  } else 
+  if (event.keyCode==37) {
+    path.focus();
+    if (wins[0].style.borderColor=="white") {
+ 	  left1.click();
+ 	} else
+	if (wins[1].style.borderColor=="white") {
+ 	  left2.click();
+ 	} else
+	if (wins[2].style.borderColor=="white") {
+ 	  left3.click();
+ 	} else
+	if (wins[3].style.borderColor=="white") {
+ 	  left4.click();
+ 	} else
+	if (wins[4].style.borderColor=="white") {
+ 	  left5.click();
+ 	}
+  }
+}
 	
 	// events
-click1=makeClick(pic1,minipic1,colored1,apps1);
-click2=makeClick(pic2,minipic2,colored2,apps2);
-click3=makeClick(pic3,minipic3,colored3,apps3);
-click4=makeClick(pic4,minipic4,colored4,apps4);
-click5=makeClick(pic5,minipic5,colored5,apps5);
+click1=makeClick(pic1,minipic1,colored1,apps1,view1);
+click2=makeClick(pic2,minipic2,colored2,apps2,view2);
+click3=makeClick(pic3,minipic3,colored3,apps3,view3);
+click4=makeClick(pic4,minipic4,colored4,apps4,view4);
+click5=makeClick(pic5,minipic5,colored5,apps5,view5);
+
+
+for (var i=0; i<arrow.length; i++) {
+  arrow[i].onmousedown=function () {
+    this.style.boxShadow="none";
+  }
+  arrow[i].onmouseup=function () {
+    if (this.id.indexOf("rb")!=-1) {
+      this.style.boxShadow="-3px -3px 2px 2px";
+    } else {
+	  this.style.boxShadow="3px 3px 2px 2px";
+	}
+  }
+}
 
 right1.onclick=click1.increment;
 right2.onclick=click2.increment;
@@ -955,28 +1107,71 @@ del4.onclick=click4.del;
 del5.onclick=click5.del;
 
 //ok1.onclick=function () {	  alert("es")	};
-for (var i=0; i<wins.length; i++) {			// change borderColor onclick;
-  wins[i].onclick=function () {
-    path.focus();
-	for (var i=0; i<wins.length; i++) {
-	  if (this.style.borderColor=="forestgreen") {	
-	    toggle=true
+ 	
+function useArrows(i) {
+//alert(i);
+//if (i=="undefined") {   i = 0   }
+    return {
+    
+	up: function () {	
+	  paint();
+      if (i > 0) { 
+	    i--;
+      } else {
+	    i = 4;
+	  }	
+	  wins[i].style.borderColor="white";
+    },
+	
+	down: function () {
+	  paint();
+	  if (i < 4) {
+	    i++;
 	  } else {
-	    toggle=false	
+	    i = 0;
 	  }
-	} 
-	paint();
-      
-	var toggle;
-	if (toggle) {
-	  this.style.borderColor="white"; 
-	} else {
-    this.style.borderColor="forestgreen"
+	  wins[i].style.borderColor="white";
 	}
-  toggle=!toggle;
+  
   }
 }
 
+(function () {
+  for (var i=0; i<wins.length; i++) {			// change borderColor onclick;
+    (function (i) {
+      wins[i].onclick = function () {
+//	    alert(i);
+        path.focus();
+	    if (this.style.borderColor=="forestgreen") {	
+	      toggle=true;
+	    } else {
+	      toggle=false;	
+	    }
+	    paint();
+      
+	    var toggle;
+	    if (toggle) {
+	      this.style.borderColor="white"; 
+	    } else {
+          this.style.borderColor="forestgreen";
+	    }
+        toggle=!toggle;
+		  var navi = useArrows(i);   
+		  document.onkeydown = function (event) {
+
+		  if (event.keyCode==38) {
+			navi.up();
+		  }
+		  if (event.keyCode==40) {
+		    navi.down();
+		  } 
+		}
+      }
+    }) (i)
+  }
+})()
+wins[0].click();
+  
 path.onkeypress=function (event) { 			//anch11
   if (event.keyCode=="13") {
 	event.preventDefault();
@@ -998,16 +1193,27 @@ path.onkeypress=function (event) { 			//anch11
 	}
   }
 }
-
-function shift (pic,minipic,focusedImg) {		// focused element anch8
+/*
+function shift (pic,minipic,focusedImg) {		// focuses elem;
   for (var i=0; i<minipic.length; i++) {
-	minipic[i].style.border="3px solid transparent"; 
+	minipic[i].style.border="3px solid transparent"; 	// anch04;
   }
   var source3=pic[focusedImg].src.slice(-11);
   if (source3!="default.jpg") {
 	minipic[focusedImg].style.border="3px solid forestgreen"; 
   }
 }
+*/
+function shift (pic,apps,focusedImg) {		// focuses elem;
+  for (var i=0; i<apps.length; i++) {
+	apps[i].style.border="3px solid transparent"; 	// anch04;
+  }
+  var source3=pic[focusedImg].src.slice(-11);
+  if (source3!="default.jpg") {
+	apps[focusedImg].style.border="3px solid forestgreen"; 
+  }
+}
+
 //	function animateScriptStatus {
 var strScript="script is working";
 var inTimer=setInterval(animateText,800);
