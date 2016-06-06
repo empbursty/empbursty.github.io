@@ -41,7 +41,7 @@ img {
 .color {			/* 887px */
 	width: 889px; 
 /*	border: 0px solid red; 	*/
-/*	margin: -2px; 			*/
+/*	margin-left: -1px; 		*/	
 	position: relative;
 }				
 
@@ -141,10 +141,11 @@ background: lightsteelblue;
 }
 
 .rside {
+	background-color: rgba(255,255,255, .4);
 	display: inline-block; 
 		-moz-user-select: none; 
 		-webkit-user-select: none;
-	width: 480px;
+	width: 468px;
 }
 /*
 .rside img {
@@ -157,6 +158,7 @@ background: lightsteelblue;
 	box-shadow: 2px 0px 1px 1px;
 	display: block;
 	height: 76px; 
+	margin-bottom: 1px;
 	opacity: .4;
 	position: relative;
 }
@@ -198,7 +200,7 @@ body {
 #way {
 	background: white;
 	/*background: linear-gradient(to top left, slategray, gold); */
-	font-family: 'myFont'; font-size: 17px; height: 50px;
+	font-family: 'myFont'; font-size: 18px; height: 50px;
 	font-style: ; padding: 4px; font-weight: bold;
 	resize: none; border-color: black; width: 497px; color: forestgreen; 
 }
@@ -210,7 +212,7 @@ body {
 }
 
 .righter {
-	float: right; 
+	float: right;
 }
 /*
 	.color div {
@@ -231,8 +233,21 @@ h1 {
 	font-family: 'myFont';
 	font-size: 40px;
 	margin-left: 25%; 
+	text-shadow: 2px 2px black;
 }
-#desc,
+#inst {
+	background-color: yellow;
+	background: linear-gradient(  to right, rgba(255,215,0, .9), rgba(218,165,32, .9)  );
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px 1px black;
+	color: black;
+	font-family: 'myFont';
+	font-size: 21px;
+	font-weight: bold;
+	margin: 0px 3px -15px 0px;
+	padding-left: 5px;
+}
+
 .check {
 	color: black;
 	font-family: 'myFont';
@@ -249,6 +264,70 @@ h1 {
 	font-weight: 1400;
 	font-style: normal;
 }
+* {
+	font-family: 'myFont';
+}
+label {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+}
+input[type='radio'] {
+	display: none;
+}
+
+.radiobtns {
+	background-color: yellow;
+	border-radius: 3px;
+	background: linear-gradient(  to right, rgba(255,215,0, .9),rgba(218,165,32, .9)  );
+	box-shadow: 2px 2px 3px 1px black;
+	float: right;
+	margin-top: -5px;
+	padding: 0 10px 2px 10px;
+}
+
+.radiobtns img {	
+	float: right;
+}
+.radiobtns span {
+	color: forestgreen;
+	font-size: 20px;
+	font-weight: bold;
+	left: 20px;
+	position: relative;
+}
+.radiobtns span:hover {
+	color: red;	
+}
+.radiobtns text {
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
+	position: relative; 
+}
+
+.radiobtns > label:before {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: tan;
+	border-radius: 50%;
+	margin-right: 40px;
+	position: absolute;
+	left: ;
+	top: 1px;
+	box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 
+				0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+
+input[type=radio]:checked + label:before {
+	content: "\2022";
+	color: #f3f3f3;
+	text-align: center;
+	font-size: 30px;
+	line-height: 18px;
+}
 
 #topbox {
 	width: 100%;
@@ -256,21 +335,21 @@ h1 {
 	position: absolute;
 }
 
-div[name*="div"] {
+div[name*='div'] {	
 	display: inline-block;
 	height: 142px;
 	overflow: hidden;
 	width: 141px;
-	margin-right: 2px;
+/*	margin-right: 1px; */
 /*	float: left;	*/
 }
 
-.added1 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; margin-top: 0px !important ;}
-.added2 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
-.added3 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
-.added4 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
-.added5 { width: 72px; height: 72px; display: inline-block; margin-right: ; overflow: hidden; }
-.newadded { border: 3px solid transparent; margin-top: -5px; }
+.added1 { width: 72px; height: 72px; display: inline-block; overflow: hidden; margin-top: 0px !important ;}
+.added2 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
+.added3 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
+.added4 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
+.added5 { width: 72px; height: 72px; display: inline-block; margin-bottom: -7px ; overflow: hidden; }
+.newadded { border: 3px solid transparent; margin-top: -5px;}
 </style>
 <link rel="icon" href="icon.ico" type="image/x-icon"> 
 </head>
@@ -413,9 +492,16 @@ div[name*="div"] {
 <input type="file" maxlength="16" size="16" value="left: " id="file1"><br>
 <input type="button" value="Remember IMG" id="ok1"><br>
 -->
+<div class="radiobtns">
+<text>select language: </text><br>
+  <input type="radio" id="ru" name="o_o" checked="checked">
+  <label for="ru"><span>русский</span></label><img src="russia.png"><br>
+  <input type="radio" id="en" name="o_o">
+  <label for="en"><span>english</span></label><img src="uk.png">
+</div>
 <h1>Colo<text style="color: red">red</text> View</h1>
-<span id="desc">Вставьте ссылку на изображение или введите название цвета <br> 
-(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter'</span><br>
+<div id="inst">Вставьте ссылку на изображение или введите название цвета <br> 
+(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter' </div><br>
 <textarea id="way"></textarea><hr>
 <!--</div>
 </div> -->	
@@ -540,18 +626,44 @@ var rside=document.getElementsByClassName("rside")[0];
 var rimgs=rside.getElementsByTagName("img");
 var newviews=document.querySelectorAll("div[name*='div']");
 var arrow=document.getElementsByClassName("outarrow");
+var radio1=document.getElementById("ru");
+var radio2=document.getElementById("en");
+var inst=document.getElementById("inst");
 
-for (var i=0; i<newviews.length; i++) {
-  newviews[i].onmouseover=function () {
-    if (this.style.backgroundColor!="transparent" && this.style.backgroundColor!="initial") {
-	  this.title=this.style.backgroundColor;
-	}
-  }
-}
 /**
   x: x-coordinate;
   h: index of added minipic;
 */
+
+radio1.checked="checked";
+radio1.onclick = function () {
+	if (radio1.checked!="checked") {
+	  inst.innerHTML=
+	  "Вставьте ссылку на изображение или введите название цвета <br>"+ 
+	  "(например: <text style='color: red'>red</text>) в поле ниже и нажмите 'Enter'"
+	}
+	path.focus();
+}
+radio2.onclick = function () {
+  if (radio2.checked!="checked") {
+    inst.innerHTML=
+    "Paste the image's link or enter the color name "+ 
+	"(example: <text style='color: red'>red</text>)"+ "<br>" +
+	"in the box below and press 'Enter'";
+  }
+  path.focus();
+}
+
+for (var i=0; i<newviews.length; i++) {
+  newviews[i].style.backgroundColor="transparent";
+  newviews[i].onmouseover=function () {
+    if (this.style.backgroundColor!="transparent" && this.style.backgroundColor!="initial") {
+	  this.title=this.style.backgroundColor
+	} else {
+	  this.title="Используйте стрелки на клавиатуре для перемещения";
+	}
+  }
+}
 
 var diff=6;
 for (var i=0; i<rimgs.length; i++) {
@@ -588,6 +700,7 @@ path.onkeypress=function (event) {
 }
 
 for (var i=0; i<dels.length; i++) {
+  dels[i].title="delete";
   dels[i].onmouseover=function () {
     this.style.background="lightsteelblue"
   }
@@ -625,35 +738,7 @@ function checkdels (imgCount,context) {				//anch5
   context.style.opacity=".4"
   }
 }	
-/*
-function selectApps (apps) {
-  for (var i=0; i<apps.length; i++) {
-    apps[i].onclick=function () {
-//    apps[i].onclick=function () {
-	//alert(minipic[i].src);
-//	  var ministr=minipic[j].src;
-//	  if (ministr.slice(-11)!="default.jpg") {
-//	  if (minipic.slice(-11)!="default.jpg") {
-	  if (this.style.backgroundColor) {
-		if (this.style.border=="3px solid transparent") {
-	      this.style.border="3px solid dodgerblue";
-	      return;
-	    }
-	    if (this.style.border=="3px solid dodgerblue") {
-	      this.style.border="3px solid transparent"
-	    }	
-	    if (this.style.border=="3px solid forestgreen") {
-	      this.style.border="3px solid blue";
-	      return;	
-	    } 
-	    if (this.style.border=="3px solid blue") { 
-	      this.style.border="3px solid forestgreen";
-	    } 
-	  }
-    }
-  }
-}
-*/
+
 function selectMinipics (minipic, apps) {						   //anch10
   for (var i=0; i<minipic.length; i++) {
     minipic[i].onclick=function () {
@@ -665,18 +750,18 @@ function selectMinipics (minipic, apps) {						   //anch10
 			  this.style.backgroundColor!="transparent" ||
 		      ministr.slice(-11)!="default.jpg") {
 		      if (this.style.border=="3px solid transparent") {
-	            this.style.border="3px solid dodgerblue";
+	            this.style.border="3px dashed dodgerblue";
 	            return;
 	          }
-	          if (this.style.border=="3px solid dodgerblue") {
+	          if (this.style.border=="3px dashed dodgerblue") {
 	            this.style.border="3px solid transparent"
 				}	
-			  if (this.style.border=="3px solid forestgreen") {
-				this.style.border="3px solid blue";
+			  if (this.style.border=="3px solid black") {
+				this.style.border="3px dashed blue";
 				return;	
 			  } 
-			  if (this.style.border=="3px solid blue") { 
-				this.style.border="3px solid forestgreen";
+			  if (this.style.border=="3px dashed blue") { 
+				this.style.border="3px solid black";
 			  } 
 			}
 		  }
@@ -685,13 +770,7 @@ function selectMinipics (minipic, apps) {						   //anch10
 	}
   }
 }
-/*	
-selectApps(apps1); // execute;
-selectApps(apps2); // execute;
-selectApps(apps3); // execute;
-selectApps(apps4); // execute;
-selectApps(apps5); // execute;
-*/
+
 selectMinipics(minipic1, apps1); // execute;
 selectMinipics(minipic2, apps2); // execute;
 selectMinipics(minipic3, apps3); // execute;
@@ -780,7 +859,7 @@ var makeClick=function (pic,minipic,colored,apps,views) {
 	  var source2=pic[afterFocusedImg+2].src.slice(-11);
 	}
 	if (source!="default.jpg") {
-	  clicked(1,1,-147);
+	  clicked(1,1,-145.5);
 	  colored.style.left=x+"px";
 	}
 	if (source2=="default.jpg") {
@@ -796,7 +875,7 @@ var makeClick=function (pic,minipic,colored,apps,views) {
   decrement: function () {		
 	context=this;
 	if (x<0) {
-	  clicked(-1,-1,147);
+	  clicked(-1,-1,145.5);
 	  colored.style.left=x+"px";
 	  shift(pic,apps,focusedImg);
 	  lunactive(x,context);
@@ -816,13 +895,16 @@ url=file1.value;
   add: function () {	
 	function clear () {
 	  setTimeout(function () {
-	  path.value=""}, 1500);	
+	    path.value="";
+	    path.style.color="forestgreen";
+	  }, 1500);	
 	}
 	//context=this;
 	//alert(context);	
 	//if (event.keyCode=="13") {
     var myimg=new Image();	
-    var wrongStr="Не поддерживаемый формат файла или цвет"+"\n"+"Incorrect file format or color";
+    var wrongStrRu="Не поддерживаемый формат файла или цвет";
+    var wrongStrEn="Incorrect file format or color";
     var str="";	
 	//if (path.value.length<4) {path.value=""; return	} 
     str=path.value.slice(-4);
@@ -862,7 +944,13 @@ url=file1.value;
 	  //alert(pic.id);
 	  break;
 	  default :
-	    path.value=wrongStr;
+		if (radio1.checked) {
+		  path.style.color="red";
+	      path.value=wrongStrRu;
+		} else {
+		  path.style.color="red";
+		  path.value=wrongStrEn;
+		}
 	    clear();
 	  return
       }
@@ -931,14 +1019,14 @@ url=file1.value;
 	var afterCount=0;		// 'after'
 	var fullCount=0;		// 'after' + 'before'
 	for (var j=minipic.length-1; j>-1; j--) {					
-	  if (apps[j].style.border=="3px solid dodgerblue" || 
-	      apps[j].style.border=="3px solid blue") {  	   			 //anch2
+	  if (apps[j].style.border=="3px dashed dodgerblue" || 
+	      apps[j].style.border=="3px dashed blue") {  	   			 //anch2
 		minipic[j].src="default.jpg";	
 		apps[j].style.backgroundColor="transparent";	
-		apps[j].title="";
+//		apps[j].title="";
 		apps[j].style.border="3px solid transparent";
 		views[j].style.backgroundColor="transparent";
-		views[j].title="";
+//		views[j].title="";
 		views[j].src="default.jpg";
 		
 		if (j <= focusedImg) {	beforeCount+=1	} else {	afterCount+=1;	}					
@@ -968,7 +1056,7 @@ url=file1.value;
 	    minipic[5].src="default.jpg";
 	    pic[5].src="default.jpg";
 		apps[5].style.backgroundColor="transparent";
-//		views[5].style.backgroundCOlor="transparent";
+//		views[5].style.backgroundColor="transparent";
 	  }	
     }
 	
@@ -980,10 +1068,10 @@ url=file1.value;
 	      if (focusedImg<0) {
 			focusedImg=0; 
 		    afterFocusedImg=1;
-		    x-=147;
+		    x-=145.5;
 		  }
 		  for (var i=0; i<beforeCount; i++) {
-		  x+=147;
+		  x+=145.5;
 		  colored.style.left=x+"px"; 
 		  }
 	  }
@@ -1003,7 +1091,7 @@ url=file1.value;
 
 	    if (imgCount==focusedImg) {
 		  if (focusedImg!=0) {
-		    x+=147;
+		    x+=145.5;
 		    colored.style.left=x+"px";  
 		  }
 		  if (focusedImg>0) { 
@@ -1021,7 +1109,7 @@ url=file1.value;
     lunactive(x,context);
     if (imgCount==0) {
 	  minipic[0].style.border="0px solid transparent"; 	//?
-	  views[0].style.background="none";
+	  views[0].style.backgroundColor="transparent";
     }
 	path.focus();
   }		// end of del.method();
@@ -1077,8 +1165,9 @@ click5=makeClick(pic5,minipic5,colored5,apps5,view5);
 
 for (var i=0; i<arrow.length; i++) {
   arrow[i].onmousedown=function () {
-    this.style.boxShadow="none";
+	this.style.boxShadow="none";
   }
+  
   arrow[i].onmouseup=function () {
     if (this.id.indexOf("rb")!=-1) {
       this.style.boxShadow="-3px -3px 2px 2px";
@@ -1210,7 +1299,7 @@ function shift (pic,apps,focusedImg) {		// focuses elem;
   }
   var source3=pic[focusedImg].src.slice(-11);
   if (source3!="default.jpg") {
-	apps[focusedImg].style.border="3px solid forestgreen"; 
+	apps[focusedImg].style.border="3px solid black"; 
   }
 }
 
