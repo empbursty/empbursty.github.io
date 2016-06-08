@@ -7,6 +7,115 @@
 <meta http-equiv="content-type" content="text-html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">	<!-- for mobile device -->
 <style type="text/css">
+#fordrag {
+	box-shadow: 3px 3px 3px 3px black;
+	position: absolute;
+	left: 71%;
+	top: 2%;
+	width: 346px;
+	height: 626px;
+	z-index: 10;
+	border-radius: 10px 0 0 0;
+	overflow: hidden;
+}
+#dragbox {
+	border: 1px solid rgb(128,128,128);
+	height: 600px;
+	overflow: auto;
+}
+
+#draghead {
+	background: linear-gradient(  to right, green, limegreen );
+	border: 0px dashed dodgerblue;
+	border-bottom: 2px solid black;
+	height: 24px;
+	width: 346px;
+}
+.elems {
+	float: right;
+	border: 1px solid black;
+	width: 28px;
+	height: 18px;
+	margin-right: 3px;
+	background: linear-gradient( to bottom, white, black );
+}
+
+#close {
+	margin-right: 2px;
+}
+
+#innermini1 {
+	width: 10px;
+	height: 10px;
+	border: 2px solid;
+	border-color: transparent transparent white transparent;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2px;
+}
+#innerclose {  transform: rotate(45deg);  }
+#innerclose div {
+	border-style: solid;
+	border-width: 2px;
+	height: 5px;
+	width: 5px;
+	transition: 1s;
+}
+
+#innerclose:hover #inn1 {
+	border-bottom-color: gold;
+	border-left-color: gold;
+	transition: 1s;
+}
+#innerclose:hover #inn2 {
+	border-bottom-color: gold;
+	border-right-color: gold;
+	transition: 1s;
+}
+#innerclose:hover #inn3 {
+	border-top-color: gold;
+	border-left-color: gold;
+	transition: 1s;
+}
+#innerclose:hover #inn4 {
+	border-top-color: gold;
+	border-right-color: gold;
+	transition: 1s;
+}
+#inn1 {  float: right; margin-right: 5px; border-color: transparent transparent white white; }
+#inn3 {  float: right; margin-right: 5px; border-color: white transparent transparent white; }
+
+#inn2 {  margin-left: 5px; border-color: transparent white white transparent; }
+#inn4 {  margin-left: 5px; border-color: white white transparent transparent; }
+
+table {
+	background: white;
+	border-collapse: collapse;
+}
+th {
+	background-color: rgba(176,196,222, 0.6);
+	font-family: "myFont";
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		-webkit-user-select: none;
+}
+td {
+	padding-left: 3px;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+}
+tr {
+	background-color: white;
+}
+tr:hover {
+ 	background-color: rgba(176,196,222, 0.6);
+}
+* {
+	cursor: url('gam144.cur'), auto !important;
+}
 .check {
 	background: white; 
 	bottom: 8px;
@@ -52,10 +161,12 @@ img {
 	display: inline-block; 
 	position: relative; 
 	bottom: 15px;
-	background: ghostwhite;
+	background: ghostwhite; 
+/*	background: linear-gradient(  to right, rgb(0,0,0), rgb(255,255,255)  ); */
 	margin-right: 15px;
-	opacity: .2;
+	opacity: .6;
 	box-shadow: 3px 3px 2px 2px black;
+	transition: 1s;
 }
 
 .arrow {
@@ -69,6 +180,7 @@ img {
 	right: 6px;
 	top: 27.5px;
 	width: 1px;
+	transition: 1s;
 }
 	
 .delete {
@@ -81,10 +193,12 @@ img {
 	position: relative; 
 	right: 6px;
 	width: 1px;
+	transition: 1s;
 }
 	
 .del:hover .delete {
-	border-right-color: gold
+	border-right-color: gold;
+	transition: 1s;
 }
 .inarrow {
 	border-color: transparent; 
@@ -96,23 +210,25 @@ img {
 	right: -13px;
 	top: -27.5px; 
 	width: 1px; 
+	transition: 1s;
 }
 
 .outarrow:hover {
-background: lightsteelblue;
+	background: lightsteelblue;
+	transition: 1s;
 }
 
 .outarrow:hover .inarrow {
 	border-right-color: lightsteelblue;
+	transition: 1s;
 }
 
 .outarrow:hover .arrow {
 	border-right-color: gold;
+	transition: 1s;
 }
 
 #view {
-/*	border: 0px solid red; */
-	float: left; 
 	margin-right: 10px;
 	position: static;
 	width: 260px; 
@@ -123,10 +239,17 @@ background: lightsteelblue;
 	height: 30px;
 }
 
+.box,
+ h1,
+.radiobtns text,
+.radiobtns span,
+#inst
+ {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
 .box {
 	position: relative;
-		-moz-user-select: none; 
-		-webkit-user-select: none;
 	height: 142px;
 }
 
@@ -141,7 +264,7 @@ background: lightsteelblue;
 }
 
 .rside {
-	background-color: rgba(255,255,255, .4);
+	background-color: rgba(255,255,255, .6);
 	display: inline-block; 
 		-moz-user-select: none; 
 		-webkit-user-select: none;
@@ -159,8 +282,9 @@ background: lightsteelblue;
 	display: block;
 	height: 76px; 
 	margin-bottom: 1px;
-	opacity: .4;
+	opacity: .6;
 	position: relative;
+	transition: 1s;
 }
 
 .del .delete {
@@ -171,38 +295,37 @@ background: lightsteelblue;
 .del:hover .inarrow {
 	border-right-color: lightsteelblue
 }
- 
-/*#alerted {background: darkcyan; resize: none; float: right; fixed: absolute; bottom: 60px; right: 9px; } */
-/*#coords {background: khaki; resize: none; float: right; position: fixed; bottom: 60px; right: 9px; } */
 
 body {
 	background: silver url("look3.jpg") top center no-repeat;
 	background-size: cover;
-/*	background: gray url("look2.jpg") top center no-repeat;	*/
-/*	background: gray url("http://csg24.ru/imag/2%2818%29.jpg") top center no-repeat;  */
 	margin: 0px;
 }
 
-* {
-/*	cursor: url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), 
-	url(http://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;		*/
-}
-
 #sdiv {
-	float: left; 
+	float: right; 
 	margin-top: 5px;
+}
+#sdiv:after {
+	content: '.';
+	display: table;
+	clear: both;
 }
 
 .del:hover {
 	background: lightsteelblue
 }
 
-#way {
+#path {
 	background: white;
-	/*background: linear-gradient(to top left, slategray, gold); */
-	font-family: 'myFont'; font-size: 18px; height: 50px;
+	border-color: black; 
+	color: forestgreen; 
+	font-family: 'myFont'; 
+	font-size: 18px; 
 	font-style: ; padding: 4px; font-weight: bold;
-	resize: none; border-color: black; width: 497px; color: forestgreen; 
+	height: 50px;
+	resize: none; 
+	width: 98%;  
 }
 .color img[src*='default.jpg'], 
 .rside img[src*='tile.jpg'], 
@@ -212,27 +335,29 @@ body {
 }
 
 .righter {
-	float: right;
+	float: right;  
 }
 /*
-	.color div {
-		border: 1px solid white; 
-		display: inline-block; 
-		height: 142px;
-		overflow: hidden; 
-		width: 141px; 
-	}
+.color div {
+	border: 1px solid white; 
+	display: inline-block; 
+	height: 142px;
+	overflow: hidden; 
+	width: 141px; 
+}
 */
 #superdiv {
-	left: 8%;
-	position: absolute;
+	margin-top: 1%;
+	margin-left: 4%;
+	width: 800px;
 }
 
 h1 {
 	color: forestgreen;
 	font-family: 'myFont';
 	font-size: 40px;
-	margin-left: 25%; 
+/*	margin-left: 25%; 	*/
+	text-align: center;
 	text-shadow: 2px 2px black;
 }
 #inst {
@@ -279,7 +404,7 @@ input[type='radio'] {
 .radiobtns {
 	background-color: yellow;
 	border-radius: 3px;
-	background: linear-gradient(  to right, rgba(255,215,0, .9),rgba(218,165,32, .9)  );
+	background: linear-gradient(  to right, rgba(255,215,0, .9), rgba(218,165,32, .9)  );
 	box-shadow: 2px 2px 3px 1px black;
 	float: right;
 	margin-top: -5px;
@@ -326,13 +451,7 @@ input[type=radio]:checked + label:before {
 	color: #f3f3f3;
 	text-align: center;
 	font-size: 30px;
-	line-height: 18px;
-}
-
-#topbox {
-	width: 100%;
-	height: 100%; 
-	position: absolute;
+	line-height: 20.5px;
 }
 
 div[name*='div'] {	
@@ -340,8 +459,6 @@ div[name*='div'] {
 	height: 142px;
 	overflow: hidden;
 	width: 141px;
-/*	margin-right: 1px; */
-/*	float: left;	*/
 }
 
 .added1 { width: 72px; height: 72px; display: inline-block; overflow: hidden; margin-top: 0px !important ;}
@@ -350,17 +467,103 @@ div[name*='div'] {
 .added4 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
 .added5 { width: 72px; height: 72px; display: inline-block; margin-bottom: -7px ; overflow: hidden; }
 .newadded { border: 3px solid transparent; margin-top: -5px;}
+
+
 </style>
 <link rel="icon" href="icon.ico" type="image/x-icon"> 
 </head>
 
 <body>
-<div id="topbox">
 <textarea class="check" id="check1">script is failed</textarea>
-<!--<textarea id="coords"> </textarea> -->
-<!--<textarea id="alerted">alert: </textarea>
-<!--<div id="header"> HEADER </div>-->
+
 <div id="superdiv">
+<div id="sdiv">
+<!--<div class="file">
+<div class="infile">
+<input type="file" maxlength="16" size="16" value="left: " id="file1"><br>
+<input type="button" value="Remember IMG" id="ok1"><br>
+-->
+<div class="radiobtns">
+<text>select language: </text><br>
+  <input type="radio" id="ru" name="o_o" checked="checked">
+  <label for="ru"><span>русский</span></label><img src="Russia.png"><br>
+  <input type="radio" id="en" name="o_o">
+  <label for="en"><span>english</span></label><img src="uk.png">
+</div>
+<h1>Colo<text style="color: red">red</text> View</h1>
+<div id="inst">Вставьте ссылку на изображение или введите название цвета <br> 
+(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter' </div><br>
+<textarea id="path"></textarea><hr>
+<!--</div>
+</div> -->	
+<div class="rside">
+
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+</div>	
+
+<div class="righter">
+<div class="del" id="del1" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del2" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del3" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del4" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del5" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+</div>
+<hr>
+</div>	 <!--end of sdiv-->	
+
 <div id="view">	
 <div id="box1" class="box">
 
@@ -484,96 +687,722 @@ div[name*='div'] {
 </div>
 </div>
 	</div>	
-</div>
+</div>  <!-- end of view -->
 
-<div id="sdiv">
-<!--<div class="file">
-<div class="infile">
-<input type="file" maxlength="16" size="16" value="left: " id="file1"><br>
-<input type="button" value="Remember IMG" id="ok1"><br>
--->
-<div class="radiobtns">
-<text>select language: </text><br>
-  <input type="radio" id="ru" name="o_o" checked="checked">
-  <label for="ru"><span>русский</span></label><img src="russia.png"><br>
-  <input type="radio" id="en" name="o_o">
-  <label for="en"><span>english</span></label><img src="uk.png">
-</div>
-<h1>Colo<text style="color: red">red</text> View</h1>
-<div id="inst">Вставьте ссылку на изображение или введите название цвета <br> 
-(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter' </div><br>
-<textarea id="way"></textarea><hr>
-<!--</div>
-</div> -->	
-<div class="rside">
-
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-</div>	
-
-<div class="righter">
-<div class="del" id="del1" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del2" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del3" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del4" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del5" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-</div>
-<hr>
-</div>	 <!--end of sdiv-->
 </div> <!--end of superdiv-->
-</div> <!-- end of topbox -->
+
+<div id="fordrag">
+<div id="draghead">
+  <div id="close" class="elems">
+    <div id="innerclose">
+	  <div id="inn1"></div>
+	  <div id="inn2"></div>
+	  <div id="inn3"></div>
+	  <div id="inn4"></div>
+	</div>
+  </div>
+  <div id="minimize" class="elems">
+	<div id="innermini1"></div>
+<!--	<div id="innermini2"></div>  -->
+  </div>
+</div>		<!-- end of draghead -->
+<div id="dragbox">
+<table>
+<thead><tr>
+<th style="width: 150px;"><b>Color</b>
+</th><th><b>HEX-code</b>
+</th><th><b>Color name</b>
+</th></tr>
+</thead>
+<tbody>
+<tr>
+<td style="background-color: #000000;">&nbsp;
+</td><td>#000000
+</td><td title="Черный">black
+</td></tr>
+<tr>
+<td style="background-color: #000080;">&nbsp;
+</td><td>#000080
+</td><td title="Темно-синий">navy
+</td></tr>
+<tr>
+<td style="background-color: #00008B;">&nbsp;
+</td><td>#00008B
+</td><td title="Темно-голубой">darkblue
+</td></tr>
+<tr>
+<td style="background-color: #0000CD;">&nbsp;
+</td><td>#0000CD
+</td><td title="Умеренно-голубой">mediumblue
+</td></tr>
+<tr>
+<td style="background-color: #0000FF;">&nbsp;
+</td><td>#0000FF
+</td><td title="Голубой">blue
+</td>
+<tr>
+<td style="background-color: #006400;">&nbsp;
+</td><td>#006400
+</td><td title="Темно-зеленый">darkgreen
+</td></tr>
+<tr>
+<td style="background-color: #008000;">&nbsp;
+</td><td>#008000
+</td><td title="Зеленый">green
+</td></tr>
+<tr>
+<td style="background-color: #008080;">&nbsp;
+</td><td>#008080
+</td><td title="Чайный">teal
+</td></tr>
+<tr>
+<td style="background-color: #008B8B;">&nbsp;
+</td><td>#008B8B
+</td><td title="Темный циан">darkcyan
+</td></tr>
+<tr>
+<td style="background-color: #00BFFF;">&nbsp;
+</td><td>#00BFFF
+</td><td title="Темный небесно-синий">deepskyblue
+</td></tr>
+<tr>
+<td style="background-color: #00CED1;">&nbsp;
+</td><td>#00CED1
+</td><td title="Темно-бирюзовый">darkturquoise
+</td></tr>
+<tr>
+<td style="background-color: #00FA9A;">&nbsp;
+</td><td>#00FA9A
+</td><td title="Умеренный синевато-серый">mediumspringgreen
+</td></tr>
+<tr>
+<td style="background-color: #00FF00;">&nbsp;
+</td><td>#00FF00
+</td><td title="Известковый">lime
+</td></tr>
+<tr>
+<td style="background-color: #00FF7F;">&nbsp;
+</td><td>#00FF7F
+</td><td title="Весенний зеленый">springgreen
+</td></tr>
+<tr>
+<td style="background-color: #00FFFF;">&nbsp;
+</td><td>#00FFFF
+</td><td title="Синий">aqua
+</td></tr>
+<tr>
+<td style="background-color: #191970;">&nbsp;
+</td><td>#191970
+</td><td title="Ночной синий">midnightblue
+</td></tr>
+<tr>
+<td style="background-color: #1E90FF;">&nbsp;
+</td><td>#1E90FF
+</td><td title="Тускло-васильковый">dodgerblue
+</td></tr>
+<tr>
+<td style="background-color: #20B2AA;">&nbsp;
+</td><td>#20B2AA
+</td><td title="Светлый морской волны">lightseagreen
+</td></tr>
+<tr>
+<td style="background-color: #228B22;">&nbsp;
+</td><td>#228B22
+</td><td title="Лесной зеленый">forestgreen
+</td></tr>
+<tr>
+<td style="background-color: #2E8B57;">&nbsp;
+</td><td>#2E8B57
+</td><td title="Морской волны">seagreen
+</td></tr>
+<tr>
+<td style="background-color: #2F4F4F;">&nbsp;
+</td><td>#2F4F4F
+</td><td title="Темный синевато-серый">darkslategray
+</td></tr>
+<tr>
+<td style="background-color: #32CD32;">&nbsp;
+</td><td>#32CD32
+</td><td title="Зеленовато-известковый">limegreen
+</td></tr>
+<tr>
+<td style="background-color: #3CB371;">&nbsp;
+</td><td>#3CB371
+</td><td title="Умеренный морской волны">mediumseagreen
+</td></tr>
+<tr>
+<td style="background-color: #40E0D0;">&nbsp;
+</td><td>#40E0D0
+</td><td title="Бирюзовый">turquoise
+</td></tr>
+<tr>
+<td style="background-color: #4169E1;">&nbsp;
+</td><td>#4169E1
+</td><td title="Королевский голубой">royalblue
+</td></tr>
+<tr>
+<td style="background-color: #4682B4;">&nbsp;
+</td><td>#4682B4
+</td><td title="Голубовато-стальной">steelblue
+</td></tr>
+<tr>
+<td style="background-color: #483D8B;">&nbsp;
+</td><td>#483D8B
+</td><td title="Темный серовато-синий">darkslateblue
+</td></tr>
+<tr>
+<td style="background-color: #48D1CC;">&nbsp;
+</td><td>#48D1CC
+</td><td title="Умеренно-бирюзовый">mediumturquoise
+</td></tr>
+<tr>
+<td style="background-color: #4B0082;">&nbsp;
+</td><td>#4B0082
+</td><td title="Индиго">indigo
+</td></tr>
+<tr>
+<td style="background-color: #556B2F;">&nbsp;
+</td><td>#556B2F
+</td><td title="Темно-оливковый">darkolivegreen
+</td></tr>
+<tr>
+<td style="background-color: #5F9EA0;">&nbsp;
+</td><td>#5F9EA0
+</td><td title="Блеклый серо-голубой">cadetblue
+</td></tr>
+<tr>
+<td style="background-color: #6495ED;">&nbsp;
+</td><td>#6495ED
+</td><td title="Васильковый">cornflowerblue
+</td></tr>
+<tr>
+<td style="background-color: #66CDAA;">&nbsp;
+</td><td>#66CDAA
+</td><td title="Умеренно-аквамариновый">mediumaaquamarine
+</td></tr>
+<tr>
+<td style="background-color: #696969;">&nbsp;
+</td><td>#696969
+</td><td title="Тускло-серый">dimgray
+</td></tr>
+<tr>
+<td style="background-color: #6A5ACD;">&nbsp;
+</td><td>#6A5ACD
+</td><td title="Серовато-синий">slateblue
+</td></tr>
+<tr>
+<td style="background-color: #6B8E23;">&nbsp;
+</td><td>#6B8E23
+</td><td title="Тускло-коричневый">olivedrab
+</td></tr>
+<tr>
+<td style="background-color: #708090;">&nbsp;
+</td><td>#708090
+</td><td title="Синевато-серый">slategray
+</td></tr>
+<tr>
+<td style="background-color: #778899;">&nbsp;
+</td><td>#778899
+</td><td title="Светлый синевато-серый">lightslategray
+</td></tr>
+<tr>
+<td style="background-color: #7B68EE;">&nbsp;
+</td><td>#7B68EE
+</td><td title="Умеренный серовато-синий">mediumslateblue
+</td></tr>
+<tr>
+<td style="background-color: #7CFC00;">&nbsp;
+</td><td>#7CFC00
+</td><td title="Зеленой травы">lawngreen
+</td></tr>
+<tr>
+<td style="background-color: #7FFF00;">&nbsp;
+</td><td>#7FFF00
+</td><td title="Фисташковый">chartreuse
+</td></tr>
+<tr>
+<td style="background-color: #7FFFD4;">&nbsp;
+</td><td>#7FFFD4
+</td><td title="Аквамарин">aquamarine
+</td></tr>
+<tr>
+<td style="background-color: #800000;">&nbsp;
+</td><td>#800000
+</td><td title="Оранжево-розовый">maroon
+</td></tr>
+<tr>
+<td style="background-color: #800080;">&nbsp;
+</td><td>#800080
+</td><td title="Пурпурный">purple
+</td></tr>
+<tr>
+<td style="background-color: #808000;">&nbsp;
+</td><td>#808000
+</td><td title="Оливковый">olive
+</td></tr>
+<tr>
+<td style="background-color: #808080;">&nbsp;
+</td><td>#808080
+</td><td title="Серый">gray
+</td></tr>
+<tr>
+<td style="background-color: #87CEEB;">&nbsp;
+</td><td>#87CEEB
+</td><td title="Небесно-голубой">skyblue
+</td></tr>
+<tr>
+<td style="background-color: #87CEFA;">&nbsp;
+</td><td>#87CEFA
+</td><td title="Светлый небесно-синий">lightskyblue
+</td></tr>
+<tr>
+<td style="background-color: #8A2BE2;">&nbsp;
+</td><td>#8A2BE2
+</td><td title="Светло-фиолетовый">blueviolet
+</td></tr>
+<tr>
+<td style="background-color: #8B0000;">&nbsp;
+</td><td>#8B0000
+</td><td title="Темно-красный">darkred
+</td></tr>
+<tr>
+<td style="background-color: #8B0000;">&nbsp;
+</td><td>#FF0000
+</td><td title="красный">red
+</td></tr>
+<tr>
+<td style="background-color: #8B008B;">&nbsp;
+</td><td>#8B008B
+</td><td title="Темный фуксин">darkmagenta
+</td></tr>
+<tr>
+<td style="background-color: #8B4513;">&nbsp;
+</td><td>#8B4513
+</td><td title="Старой кожи">saddlebrown
+</td></tr>
+<tr>
+<td style="background-color: #8FBC8F;">&nbsp;
+</td><td>#8FBC8F
+</td><td title="Темный морской волны">darkseagreen
+</td></tr>
+<tr>
+<td style="background-color: #9370DB;">&nbsp;
+</td><td>#9370DB
+</td><td title="Умеренно-пурпурный">mediumpurple
+</td></tr>
+<tr>
+<td style="background-color: #9400D3;">&nbsp;
+</td><td>#9400D3
+</td><td title="Темно-фиолетовый">darkviolet
+</td></tr>
+<tr>
+<td style="background-color: #98FB98;">&nbsp;
+</td><td>#98FB98
+</td><td title="Бледно-зеленый">palegreen
+</td></tr>
+<tr>
+<td style="background-color: #9932CC;">&nbsp;
+</td><td>#9932CC
+</td><td title="Темно-орхидейный">darkorchid
+</td></tr>
+<tr>
+<td style="background-color: #9ACD32;">&nbsp;
+</td><td>#9ACD32
+</td><td title="Желто-зеленый">yellowgreen
+</td></tr>
+<tr>
+<td style="background-color: #9CEE90;">&nbsp;
+</td><td>#9CEE90
+</td><td title="Светло-зеленый">lightgreen
+</td></tr>
+<tr>
+<td style="background-color: #A0522D;">&nbsp;
+</td><td>#A0522D
+</td><td title="Охра">sienna
+</td></tr>
+<tr>
+<td style="background-color: #A52A2A;">&nbsp;
+</td><td>#A52A2A
+</td><td title="Коричневый">brown
+</td></tr>
+<tr>
+<td style="background-color: #A9A9A9;">&nbsp;
+</td><td>#A9A9A9
+</td><td title="Темно-серый">darkgray
+</td></tr>
+<tr>
+<td style="background-color: #ADD8E6;">&nbsp;
+</td><td>#ADD8E6
+</td><td title="Светло-голубой">lightblue
+</td></tr>
+<tr>
+<td style="background-color: #ADFF2F;">&nbsp;
+</td><td>#ADFF2F
+</td><td title="Желто-зеленый">greenyellow
+</td></tr>
+<tr>
+<td style="background-color: #AFEEEE;">&nbsp;
+</td><td>#AFEEEE
+</td><td title="Бледно-бирюзовый">paleturquise
+</td></tr>
+<tr>
+<td style="background-color: #B0C4DE;">&nbsp;
+</td><td>#B0C4DE
+</td><td title="Светло-стальной">lightsteelblue
+</td></tr>
+<tr>
+<td style="background-color: #B0E0E6;">&nbsp;
+</td><td>#B0E0E6
+</td><td title="Туманно-голубой">powderblue
+</td></tr>
+<tr>
+<td style="background-color: #B22222;">&nbsp;
+</td><td>#B22222
+</td><td title="Огнеупорного кирпича">firebrick
+</td></tr>
+<tr>
+<td style="background-color: #B8860B;">&nbsp;
+</td><td>#B8860B
+</td><td title="Темный красно-золотой">darkgoldenrod
+</td></tr>
+<tr>
+<td style="background-color: #BA55D3;">&nbsp;
+</td><td>#BA55D3
+</td><td title="Умеренно-орхидейный">mediumorchid
+</td></tr>
+<tr>
+<td style="background-color: #BC8F8F;">&nbsp;
+</td><td>#BC8F8F
+</td><td title="Розово-коричневый">rosybrown
+</td></tr>
+<tr>
+<td style="background-color: #BDB76B;">&nbsp;
+</td><td>#BDB76B
+</td><td title="Темный хаки">darkkhaki
+</td></tr>
+<tr>
+<td style="background-color: #C0C0C0;">&nbsp;
+</td><td>#C0C0C0
+</td><td title="Серебристый">silver
+</td></tr>
+<tr>
+<td style="background-color: #C71585;">&nbsp;
+</td><td>#C71585
+</td><td title="Умеренный красно-фиолетовый">mediumvioletred
+</td></tr>
+<tr>
+<td style="background-color: #CD5C5C;">&nbsp;
+</td><td>#CD5C5C
+</td><td title="Ярко-красный">indianred
+</td></tr>
+<tr>
+<td style="background-color: #CD853F;">&nbsp;
+</td><td>#CD853F
+</td><td title="Коричневый">peru
+</td></tr>
+<tr>
+<td style="background-color: #D2691E;">&nbsp;
+</td><td>#D2691E
+</td><td title="Шоколадный">chocolate
+</td></tr>
+<tr>
+<td style="background-color: #D2B48C;">&nbsp;
+</td><td>#D2B48C
+</td><td title="Желтовато-коричневый">tan
+</td></tr>
+<tr>
+<td style="background-color: #D3D3D3;">&nbsp;
+</td><td>#D3D3D3
+</td><td title="Светло-серый">lightgray
+</td></tr>
+<tr>
+<td style="background-color: #D8BFD8;">&nbsp;
+</td><td>#D8BFD8
+</td><td title="Чертополоха">thistle
+</td></tr>
+<tr>
+<td style="background-color: #DA70D6;">&nbsp;
+</td><td>#DA70D6
+</td><td title="Орхидейный">orchid
+</td></tr>
+<tr>
+<td style="background-color: #DAA520;">&nbsp;
+</td><td>#DAA520
+</td><td title="Красного золота">goldenrod
+</td></tr>
+<tr>
+<td style="background-color: #DB7093;">&nbsp;
+</td><td>#DB7093
+</td><td title="Бледный красно-фиолетовый">plaevioletred
+</td></tr>
+<tr>
+<td style="background-color: #DC143C;">&nbsp;
+</td><td>#DC143C
+</td><td title="Малиновый">cornsilk
+</td></tr>
+<tr>
+<td style="background-color: #DCDCDC;">&nbsp;
+</td><td>#DCDCDC
+</td><td title="Светлый серо-фиолетовый">fainsboro
+</td></tr>
+<tr>
+<td style="background-color: #DDA0DD;">&nbsp;
+</td><td>#DDA0DD
+</td><td title="Сливовый">plum
+</td></tr>
+<tr>
+<td style="background-color: #DEB887;">&nbsp;
+</td><td>#DEB887
+</td><td title="Старого дерева">burlywood
+</td></tr>
+<tr>
+<td style="background-color: #E0FFFF;">&nbsp;
+</td><td>#E0FFFF
+</td><td title="Светлый циан">lightcyan
+</td></tr>
+<tr>
+<td style="background-color: #E6E6FA;">&nbsp;
+</td><td>#E6E6FA
+</td><td title="Бледно-лиловый">lavender
+</td></tr>
+<tr>
+<td style="background-color: #E9967A;">&nbsp;
+</td><td>#E9967A
+</td><td title="Темный оранжево-розовый">darksalmon
+</td></tr>
+<tr>
+<td style="background-color: #EE82EE;">&nbsp;
+</td><td>#EE82EE
+</td><td title="Фиолетовый">violet
+</td></tr>
+<tr>
+<td style="background-color: #EEE8AA;">&nbsp;
+</td><td>#EEE8AA
+</td><td title="Бледно-золотой">palegoldenrod
+</td></tr>
+<tr>
+<td style="background-color: #F08080;">&nbsp;
+</td><td>#F08080
+</td><td title="Светло-коралловый">lightcoral
+</td></tr>
+<tr>
+<td style="background-color: #F0E68C;">&nbsp;
+</td><td>#F0E68C
+</td><td title="Хаки">khaki
+</td></tr>
+<tr>
+<td style="background-color: #F0F8FF;">&nbsp;
+</td><td>#F0F8FF
+</td><td title="Блекло-голубой">aliceBlue
+</td></tr>
+<tr>
+<td style="background-color: #F0FFF0;">&nbsp;
+</td><td>#F0FFF0
+</td><td title="Свежего меда">honeydew
+</td></tr>
+<tr>
+<td style="background-color: #F0FFFF;">&nbsp;
+</td><td>#F0FFFF
+</td><td title="Лазурь">azure
+</td></tr>
+<tr>
+<td style="background-color: #F4A460;">&nbsp;
+</td><td>#F4A460
+</td><td title="Рыже-коричневый">sandybrown
+</td></tr>
+<tr>
+<td style="background-color: #F5DEB3;">&nbsp;
+</td><td>#F5DEB3
+</td><td title="Пшеничный">wheat
+</td></tr>
+<tr>
+<td style="background-color: #F5F5DC;">&nbsp;
+</td><td>#F5F5DC
+</td><td title="Бежевый">beige
+</td></tr>
+<tr>
+<td style="background-color: #F5F5F5;">&nbsp;
+</td><td>#F5F5F5
+</td><td title="Белый дымчатый">whitesmoke
+</td></tr>
+<tr>
+<td style="background-color: #F5FFFA;">&nbsp;
+</td><td>#F5FFFA
+</td><td title="Мятно-кремовый">mintcream
+</td></tr>
+<tr>
+<td style="background-color: #F8F8FF;">&nbsp;
+</td><td>#F8F8FF
+</td><td title="Туманно-белый">ghostwhite
+</td></tr>
+<tr>
+<td style="background-color: #FA8072;">&nbsp;
+</td><td>#FA8072
+</td><td title="Оранжево-розовый">salmon
+</td></tr>
+<tr>
+<td style="background-color: #FAEBD7;">&nbsp;
+</td><td>#FAEBD7
+</td><td title="Античный белый">antuqueWhite
+</td></tr>
+<tr>
+<td style="background-color: #FAF0E6;">&nbsp;
+</td><td>#FAF0E6
+</td><td title="Льняной">linen
+</td></tr>
+<tr>
+<td style="background-color: #FDF5E6;">&nbsp;
+</td><td>#FDF5E6
+</td><td title="Старого коньяка">oldlace
+</td></tr>
+<tr>
+<td style="background-color: #FF00FF;">&nbsp;
+</td><td>#FF00FF
+</td><td title="Фуксия">fuchsia
+</td></tr>
+<tr>
+<td style="background-color: #FF1493;">&nbsp;
+</td><td>#FF1493
+</td><td title="Темно-розовый">deeppink
+</td></tr>
+<tr>
+<td style="background-color: #FF4500;">&nbsp;
+</td><td>#FF4500
+</td><td title="Красно-оранжевый">orangered
+</td></tr>
+<tr>
+<td style="background-color: #FF6347;">&nbsp;
+</td><td>#FF6347
+</td><td title="Томатный">tomato
+</td></tr>
+<tr>
+<td style="background-color: #FF69B4;">&nbsp;
+</td><td>#FF69B4
+</td><td title="Ярко-розовый">hotpink
+</td></tr>
+<tr>
+<td style="background-color: #FF7F50;">&nbsp;
+</td><td>#FF7F50
+</td><td title="Коралловый">coral
+</td></tr>
+<tr>
+<td style="background-color: #FF8C00;">&nbsp;
+</td><td>#FF8C00
+</td><td title="Темно-оранжевый">darkorange
+</td></tr>
+<tr>
+<td style="background-color: #FFA07A;">&nbsp;
+</td><td>#FFA07A
+</td><td title="Светлый оранжево-розовый">lightsalmon
+</td></tr>
+<tr>
+<td style="background-color: #FFA500;">&nbsp;
+</td><td>#FFA500
+</td><td title="Оранжевый">orange
+</td></tr>
+<tr>
+<td style="background-color: #FFB6C1;">&nbsp;
+</td><td>#FFB6C1
+</td><td title="Светло-розовый">lightpink
+</td></tr>
+<tr>
+<td style="background-color: #FFC0CB;">&nbsp;
+</td><td>#FFC0CB
+</td><td title="Розовый">pink
+</td></tr>
+<tr>
+<td style="background-color: #FFD700;">&nbsp;
+</td><td>#FFD700
+</td><td title="Золотой">gold
+</td></tr>
+<tr>
+<td style="background-color: #FFDAB9;">&nbsp;
+</td><td>#FFDAB9
+</td><td title="Персиковый">peachpuff
+</td></tr>
+<tr>
+<td style="background-color: #FFDEAD;">&nbsp;
+</td><td>#FFDEAD
+</td><td title="Грязно-серый">navajowhite
+</td></tr>
+<tr>
+<td style="background-color: #FFE4B5;">&nbsp;
+</td><td>#FFE4B5
+</td><td title="Болотный">moccasin
+</td></tr>
+<tr>
+<td style="background-color: #FFE4C4;">&nbsp;
+</td><td>#FFE4C4
+</td><td title="Бисквитный">bisque
+</td></tr>
+<tr>
+<td style="background-color: #FFE4E1;">&nbsp;
+</td><td>#FFE4E1
+</td><td title="Туманно-розовый">mistyrose
+</td></tr>
+<tr>
+<td style="background-color: #FFEBCD;">&nbsp;
+</td><td>#FFEBCD
+</td><td title="Светло-кремовый">blanchedalmond
+</td></tr>
+<tr>
+<td style="background-color: #FFEFD5;">&nbsp;
+</td><td>#FFEFD5
+</td><td title="Дыни">papayaawhip
+</td></tr>
+<tr>
+<td style="background-color: #FFF0F5;">&nbsp;
+</td><td>#FFF0F5
+</td><td title="Бледный розово-лиловый">lavenderblush
+</td></tr>
+<tr>
+<td style="background-color: #FFF5EE;">&nbsp;
+</td><td>#FFF5EE
+</td><td title="Морской пены">seashell
+</td></tr>
+<tr>
+<td style="background-color: #FFF8DC;">&nbsp;
+</td><td>#FFF8DC
+</td><td title="Темно-зеленый">cornsilk
+</td></tr>
+<tr>
+<td style="background-color: #FFFACD;">&nbsp;
+</td><td>#FFFACD
+</td><td title="Лимонный">lemonchiffon
+</td></tr>
+<tr>
+<td style="background-color: #FFFAF0;">&nbsp;
+</td><td>#FFFAF0
+</td><td title="Цветочно-белый">floralwhite
+</td></tr>
+<tr>
+<td style="background-color: #FFFAFA;">&nbsp;
+</td><td>#FFFAFA
+</td><td title="Снежный">snow
+</td></tr>
+<tr>
+<td style="background-color: #FFFF00;">&nbsp;
+</td><td>#FFFF00
+</td><td title="Желтый">yellow
+</td></tr>
+<tr>
+<td style="background-color: #FFFFE0;">&nbsp;
+</td><td>#FFFFE0
+</td><td title="Светло-желтый">lightyellow
+</td></tr>
+<tr>
+<td style="background-color: #FFFFF0;">&nbsp;
+</td><td>#FFFFF0
+</td><td title="Слоновой кости">ivory
+</td></tr>
+<tr>
+<td style="background-color: #FFFFFF;">&nbsp;
+</td><td>#FFFFFF
+</td><td title="Белый">white
+</td></tr></tbody>
+</table>
+</div> <!-- end of dragbox -->
+</div> <!-- end of fordrag -->
 </body>
 <noscript>JavaScript is disabled</noscript>
 <script type="text/javascript">
@@ -620,7 +1449,7 @@ var del3=document.getElementById("del3");
 var del4=document.getElementById("del4");
 var del5=document.getElementById("del5");
 var dels=document.getElementsByName("del");
-var path=document.getElementById("way");
+var path=document.getElementById("path");
 var images=document.images;
 var rside=document.getElementsByClassName("rside")[0];
 var rimgs=rside.getElementsByTagName("img");
@@ -629,7 +1458,35 @@ var arrow=document.getElementsByClassName("outarrow");
 var radio1=document.getElementById("ru");
 var radio2=document.getElementById("en");
 var inst=document.getElementById("inst");
+var cells=document.getElementsByTagName("td");
+var dragbox=document.getElementById("dragbox");
+var fd=document.getElementById("fordrag");
+var close=document.querySelector("#close");
+var mini=document.querySelector("#minimize");
+var inmini1=document.querySelector("#innermini1");
+var inmini2=document.querySelector("#innermini2");
+var rbs=document.querySelector(".radiobtns");
 
+path.value="";
+for (var i=0; i<cells.length; i++) {
+  cells[i].onclick = function () {
+	if (this.innerText.length > 1) {
+	  path.value = this.innerText;
+	} else {
+	  path.value = this.nextElementSibling.nextElementSibling.innerText;
+	}
+	path.focus();
+  }
+}
+
+for (var i=0; i<cells.length; i++) {
+  cells[i].addEventListener("mouseover", function () {
+    if (this.innerText.length < 2) {
+	  this.title = "click me";
+	}
+  }, false);
+} 
+  
 /**
   x: x-coordinate;
   h: index of added minipic;
@@ -660,7 +1517,7 @@ for (var i=0; i<newviews.length; i++) {
     if (this.style.backgroundColor!="transparent" && this.style.backgroundColor!="initial") {
 	  this.title=this.style.backgroundColor
 	} else {
-	  this.title="Используйте стрелки на клавиатуре для перемещения";
+	  this.title="Use keyboard's arrows";
 	}
   }
 }
@@ -698,21 +1555,32 @@ path.onkeypress=function (event) {
   event.preventDefault();
   }
 }
+for (var i=0; i<dels.length; i++) {
+  dels[i].ondragstart = function () {
+    return false;
+  }
+}
 
 for (var i=0; i<dels.length; i++) {
   dels[i].title="delete";
-  dels[i].onmouseover=function () {
+  (function (i) {
+  
+  dels[i].onmouseover=function () {	
     this.style.background="lightsteelblue"
   }
   dels[i].onmouseout=function () {
     this.style.background="ghostwhite"
   }
-  dels[i].onmousedown=function () {
-    this.style.boxShadow="none"; 
-  }
-  dels[i].onmouseup=function () {
-    this.style.boxShadow="2px 0 1px 1px";
-  }
+
+    dels[i].onmousedown=function () {
+      this.style.boxShadow="none"; 
+	  var self = this;
+	  
+      document.onmouseup=function () {
+        self.style.boxShadow="2px 0 1px 1px";
+      }
+	}
+  })(i)
 }
 
 function paint () {
@@ -724,7 +1592,7 @@ paint();
 //wins[0].style.borderColor="white"; 			// default 1st window;
 
 for (var j=0; j<dels.length; j++)
-  dels[j].style.opacity=".4";
+  dels[j].style.opacity=".6";
   
 function checkdels (imgCount,context) {				//anch5
   if (context==right1) {	context=del1	};
@@ -735,7 +1603,7 @@ function checkdels (imgCount,context) {				//anch5
   if (imgCount>0) {
     context.style.opacity="1"
   } else {
-  context.style.opacity=".4"
+  context.style.opacity=".6"
   }
 }	
 
@@ -802,7 +1670,7 @@ function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
 	//context=right1;
   checkdels(imgCount,context);
   if (imgCount<2) {
-	context.style.opacity=".2";					//do smth with it;
+	context.style.opacity=".6";					//do smth with it;
   } else {
 	//alert("else");
 	//alert(context.id);
@@ -813,7 +1681,7 @@ function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
   }
   r=r-1;
   if (r==focusedImg) {
-	context.style.opacity=".2";	//context? ><
+	context.style.opacity=".6";	//context? ><
   } 	
 }
 
@@ -831,7 +1699,7 @@ function lunactive (x,context) {		//anch6;
   if (context==del5) 	 {	context=left5	};
 	//alert("left-context: "+context.id);
   if (x==0) {
-	context.style.opacity=".2";				//left1~context;
+	context.style.opacity=".6";				//left1~context;
   } else {
 	context.style.opacity="1";	
   }
@@ -863,10 +1731,10 @@ var makeClick=function (pic,minipic,colored,apps,views) {
 	  colored.style.left=x+"px";
 	}
 	if (source2=="default.jpg") {
-	  this.style.opacity=".2";
+	  this.style.opacity=".6";
 	}
 	if (x==-735) {
-	  this.style.opacity=".2";
+	  this.style.opacity=".6";
 	}
   lunactive (x,context);
   shift (pic,apps,focusedImg);	
@@ -893,6 +1761,14 @@ url=file1.value;
 */
 
   add: function () {	
+    function getCoords(elem) { 
+      var box = elem.getBoundingClientRect();
+      return {
+	    left: box.left + pageXOffset,
+        top: box.top + pageYOffset	
+      }
+    }
+  
 	function clear () {
 	  setTimeout(function () {
 	    path.value="";
@@ -909,21 +1785,98 @@ url=file1.value;
 	//if (path.value.length<4) {path.value=""; return	} 
     str=path.value.slice(-4);
 	//if ( path.value.indexOf!="/" && path.value.indexOf!="\" ) 
-    if (path.value.length < 20) {						//anch02
+    if (path.value.length < 20) {		
+	  if (path.value.toLowerCase()=="show table" || path.value.toLowerCase()=="ырщц ефиду") {
+	    fd.style.display="block";
+		fd.style.left="71%";
+		fd.style.top="2%";
+		path.value="";
+		return;
+	  } else if ( ~path.value.indexOf("+") ) {
+	    var beforePlus = "";
+	    var afterPlus = "";
+		for (var i=0; i<path.value.length; i++) {
+		  if (path.value[i]!="+") {
+		    beforePlus += path.value[i];
+		  } else {
+		    break;
+		  }
+		}
+		for (var i=path.value.length-1; i>0; i--) {
+		  if (path.value[i]!="+") {
+		    afterPlus += path.value[i];
+		  } else {
+		  break ;
+		  }
+		}
+		var afterArr=[];
+		afterArr=afterPlus.split("").reverse().join("");
+		afterPlus=afterArr;
+		
+		
+		var beforeHex="";
+		var afterHex="";
+		for (var j=0; j<cells.length; j++) {
+		  if (beforePlus.toUpperCase()==cells[j].innerText.toUpperCase()) {
+		    if (beforePlus.indexOf("#")==-1) {
+		      beforeHex=cells[j-1].innerText;
+			} else {
+			  beforeHex=cells[j].innerText;
+			}
+		  }
+		  if (afterPlus.toUpperCase()==cells[j].innerText.toUpperCase()) {
+		    if (afterPlus.indexOf("#")==-1) {
+		      afterHex=cells[j-1].innerText;
+			} else {
+			  afterHex=cells[j].innerText;
+			}
+		  }
+		}
+		
+		function HexToRGB (color) {
+		  var rgba = "";
+		  var r = parseInt(  color.slice(1,3), 16);
+		  var g = parseInt(  color.slice(3,5), 16);
+		  var b = parseInt(  color.slice(5,7), 16);
+		  rgba += r + "," + g + "," + b + "," + "0.9";
+		  return rgba;
+		}
+		var before=HexToRGB(beforeHex);
+		var after=HexToRGB(afterHex);
+		inst.style.background="linear-gradient(to right, rgba(" + before +
+		"), rgba(" + after +" ))";
+		rbs.style.background="linear-gradient(to right, rgba(" + before +
+		"), rgba(" + after +" ))";
+		document.querySelector("#draghead").style.background=
+		"linear-gradient(to right, rgba(" + before +
+		"), rgba(" + after +" ))";
+//		clear();
+		return;
+	  } 
+	  
 	  apps[h].style.backgroundColor=path.value;
-	  views[h].style.backgroundColor=path.value;
+	  views[h].style.backgroundColor=path.value;	//anch02
+	  
+	  for (var i=0; i<cells.length; i++) {
+	    if (cells[i].innerText==path.value) {
+		  //cells[i].style.border="2px dotted red";
+		  //var cellCoords = getCoords(cells[i]);
+		  //dragbox.scrollTo(cellCoords.left,cellCoords.top - 35);
+		}
+	  }
+	  
 	  if (apps[h].style.backgroundColor && 
 		  apps[h].style.backgroundColor!="transparent" &&
 		  apps[h].style.backgroundColor!="initial") { 
-	    minipic[h].src="tile.jpg";
-	    pic[h].src="tile.jpg";
-		h++; 
-		imgCount++;										// replicating code (fix it)
-	    path.value="";
-	    path.focus();
-	    shift(pic,apps,focusedImg);
-	    runactive(pic,x,imgCount,focusedImg,context);
-	    return;
+			minipic[h].src="tile.jpg";
+			pic[h].src="tile.jpg";
+			h++; 
+			imgCount++;										// replicating code (fix it)
+			path.value="";
+			path.focus();
+			shift(pic,apps,focusedImg);
+			runactive(pic,x,imgCount,focusedImg,context);
+			return;
 	  } 
     }
     if (path.value.slice(-5).toLowerCase()==".jpeg") {
@@ -1164,17 +2117,20 @@ click5=makeClick(pic5,minipic5,colored5,apps5,view5);
 
 
 for (var i=0; i<arrow.length; i++) {
-  arrow[i].onmousedown=function () {
-	this.style.boxShadow="none";
-  }
-  
-  arrow[i].onmouseup=function () {
-    if (this.id.indexOf("rb")!=-1) {
-      this.style.boxShadow="-3px -3px 2px 2px";
-    } else {
-	  this.style.boxShadow="3px 3px 2px 2px";
+  (function (i) {
+    arrow[i].onmousedown=function () {
+	  this.style.boxShadow="none";
+	  var self = this;
+	  
+      document.onmouseup=function () {
+        if (self.id.indexOf("rb")!=-1) {
+          self.style.boxShadow="-3px -3px 2px 2px";
+        } else {
+	      self.style.boxShadow="3px 3px 2px 2px";
+	    }
+      }
 	}
-  }
+  })(i);
 }
 
 right1.onclick=click1.increment;
@@ -1282,17 +2238,7 @@ path.onkeypress=function (event) { 			//anch11
 	}
   }
 }
-/*
-function shift (pic,minipic,focusedImg) {		// focuses elem;
-  for (var i=0; i<minipic.length; i++) {
-	minipic[i].style.border="3px solid transparent"; 	// anch04;
-  }
-  var source3=pic[focusedImg].src.slice(-11);
-  if (source3!="default.jpg") {
-	minipic[focusedImg].style.border="3px solid forestgreen"; 
-  }
-}
-*/
+
 function shift (pic,apps,focusedImg) {		// focuses elem;
   for (var i=0; i<apps.length; i++) {
 	apps[i].style.border="3px solid transparent"; 	// anch04;
@@ -1322,6 +2268,77 @@ function animateText () {
 	if (stopme==4) {clearInterval(inTimer)}
   }
 }
+
+fd.onmousedown = function (event) {
+  function getCoords(elem) { 
+    var box = elem.getBoundingClientRect();
+    return {
+	   left: box.left + pageXOffset,
+       top: box.top + pageYOffset	
+    }
+  }
+  
+  var coords = getCoords(fd);
+  var shiftX = event.pageX - coords.left;
+  var shiftY = event.pageY - coords.top;
+    
+  if (shiftY < 24) {
+
+    function moveAt(event) {
+      fd.style.left = event.pageX - shiftX + 'px';
+      fd.style.top = event.pageY - shiftY + 'px';
+    }
+    moveAt(event);
+		
+    document.onmousemove = function (event) {
+      moveAt(event); 
+    }
+
+    document.onmouseup = function (event) {
+	  if (event.pageY < 0 || event.pageX < 0) {  
+		fd.style.top = "2%";  
+		fd.style.left = "71%";  
+	  }
+      this.onmousemove = null;
+  	this.onmouseup = null;
+    }
+  } else {  return }
+}
+
+fd.ondragstart = function () {
+  return false
+}
+close.addEventListener("click", function () {
+  fd.style.display="none";
+  path.focus();
+},false);
+mini.addEventListener("click", function () {
+  if (fd.style.height != "26px") {
+    fd.style.height="26px";
+	inmini1.style.borderColor="white";
+  } else {
+    fd.style.height="626px";
+	inmini1.style.borderColor="transparent transparent white transparent";
+  }
+},false);
+
+mini.onmouseover = function () {
+  inmini1.style.transition="1s";
+  if (fd.style.height != "26px") {
+    inmini1.style.borderColor="transparent transparent gold transparent";
+  } else {
+    inmini1.style.borderColor="gold";
+  }
+}
+mini.onmouseout = function () {
+  inmini1.style.transition="1s";
+  if (fd.style.height != "26px") {
+    inmini1.style.borderColor="transparent transparent white transparent";
+  } else {
+    inmini1.style.borderColor="white";
+  }
+}
+
 //		}
 //animateScriptStatus();		
 //document.onclick=function (event) {
