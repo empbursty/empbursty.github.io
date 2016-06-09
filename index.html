@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">	<!-- for mobile device -->
 <style type="text/css">
 #fordrag {
-	box-shadow: 3px 3px 3px 3px black;
+	box-shadow: 3px 2px 2px 2px black;
 	position: absolute;
 	left: 71%;
 	top: 2%;
@@ -25,9 +25,9 @@
 }
 
 #draghead {
-	background: linear-gradient(  to right, green, limegreen );
+	background: linear-gradient(  to right, rgba(211,211,211, .9), rgba(255,255,255, .9)  );
 	border: 0px dashed dodgerblue;
-	border-bottom: 2px solid black;
+	border-bottom: 1px solid gray;
 	height: 24px;
 	width: 346px;
 }
@@ -37,7 +37,7 @@
 	width: 28px;
 	height: 18px;
 	margin-right: 3px;
-	background: linear-gradient( to bottom, white, black );
+	background: linear-gradient( to bottom, white, gray );
 }
 
 #close {
@@ -63,23 +63,23 @@
 }
 
 #innerclose:hover #inn1 {
-	border-bottom-color: gold;
-	border-left-color: gold;
+	border-bottom-color: darkslategray;
+	border-left-color: darkslategray;
 	transition: 1s;
 }
 #innerclose:hover #inn2 {
-	border-bottom-color: gold;
-	border-right-color: gold;
+	border-bottom-color: darkslategray;
+	border-right-color: darkslategray;
 	transition: 1s;
 }
 #innerclose:hover #inn3 {
-	border-top-color: gold;
-	border-left-color: gold;
+	border-top-color: darkslategray;
+	border-left-color: darkslategray;
 	transition: 1s;
 }
 #innerclose:hover #inn4 {
-	border-top-color: gold;
-	border-right-color: gold;
+	border-top-color: darkslategray;
+	border-right-color: darkslategray;
 	transition: 1s;
 }
 #inn1 {  float: right; margin-right: 5px; border-color: transparent transparent white white; }
@@ -93,7 +93,7 @@ table {
 	border-collapse: collapse;
 }
 th {
-	background-color: rgba(176,196,222, 0.6);
+	background-color: rgba(176,196,222, 0.4);
 	font-family: "myFont";
 	border-right: 1px solid;
 	border-bottom: 1px solid;
@@ -103,6 +103,7 @@ th {
 		-webkit-user-select: none;
 }
 td {
+	font-family: "myFont2";
 	padding-left: 3px;
 	border-right: 1px solid;
 	border-bottom: 1px solid;
@@ -111,9 +112,10 @@ tr {
 	background-color: white;
 }
 tr:hover {
- 	background-color: rgba(176,196,222, 0.6);
+ 	background-color: rgba(176,196,222, 0.4);
 }
 * {
+	font-family: 'myFont';
 	cursor: url('gam144.cur'), auto !important;
 }
 .check {
@@ -164,7 +166,7 @@ img {
 	background: ghostwhite; 
 /*	background: linear-gradient(  to right, rgb(0,0,0), rgb(255,255,255)  ); */
 	margin-right: 15px;
-	opacity: .6;
+	opacity: .4;
 	box-shadow: 3px 3px 2px 2px black;
 	transition: 1s;
 }
@@ -197,7 +199,7 @@ img {
 }
 	
 .del:hover .delete {
-	border-right-color: gold;
+	border-right-color: darkslategray;
 	transition: 1s;
 }
 .inarrow {
@@ -215,7 +217,7 @@ img {
 
 .outarrow:hover {
 	background: lightsteelblue;
-	transition: 1s;
+	transition: 1s; 
 }
 
 .outarrow:hover .inarrow {
@@ -224,7 +226,7 @@ img {
 }
 
 .outarrow:hover .arrow {
-	border-right-color: gold;
+	border-right-color: darkslategray;
 	transition: 1s;
 }
 
@@ -264,7 +266,7 @@ img {
 }
 
 .rside {
-	background-color: rgba(255,255,255, .6);
+	background-color: rgba(255,255,255, .4);
 	display: inline-block; 
 		-moz-user-select: none; 
 		-webkit-user-select: none;
@@ -282,7 +284,7 @@ img {
 	display: block;
 	height: 76px; 
 	margin-bottom: 1px;
-	opacity: .6;
+	opacity: .4;
 	position: relative;
 	transition: 1s;
 }
@@ -319,10 +321,12 @@ body {
 #path {
 	background: white;
 	border-color: black; 
-	color: forestgreen; 
-	font-family: 'myFont'; 
+	color: black; 
+	font-family: 'myFont2'; 
 	font-size: 18px; 
-	font-style: ; padding: 4px; font-weight: bold;
+	font-style: ; 
+	padding: 4px; 
+	font-weight: ;
 	height: 50px;
 	resize: none; 
 	width: 98%;  
@@ -362,7 +366,7 @@ h1 {
 }
 #inst {
 	background-color: yellow;
-	background: linear-gradient(  to right, rgba(255,215,0, .9), rgba(218,165,32, .9)  );
+	background: linear-gradient(  to right, rgba(211,211,211, .9), rgba(255,255,255, .9)  );
 	border-radius: 3px;
 	box-shadow: 1px 1px 1px 1px black;
 	color: black;
@@ -389,9 +393,16 @@ h1 {
 	font-weight: 1400;
 	font-style: normal;
 }
-* {
-	font-family: 'myFont';
+@font-face {
+	font-family: 'myFont2';
+	src:
+	url('neucha.woff') format('woff'), 
+	url('neucha.woff2') format('woff2'), 
+	url('neucha.ttf') format('truetype');
+/*	font-weight: 1400;  */
+	font-style: normal;
 }
+
 label {
 	cursor: pointer;
 	display: inline-block;
@@ -404,7 +415,7 @@ input[type='radio'] {
 .radiobtns {
 	background-color: yellow;
 	border-radius: 3px;
-	background: linear-gradient(  to right, rgba(255,215,0, .9), rgba(218,165,32, .9)  );
+	background: linear-gradient(  to right, rgba(211,211,211, .9), rgba(255,255,255, .9)  );
 	box-shadow: 2px 2px 3px 1px black;
 	float: right;
 	margin-top: -5px;
@@ -1573,11 +1584,15 @@ for (var i=0; i<dels.length; i++) {
   }
 
     dels[i].onmousedown=function () {
+	  this.style.transition="0s";
       this.style.boxShadow="none"; 
 	  var self = this;
 	  
       document.onmouseup=function () {
         self.style.boxShadow="2px 0 1px 1px";
+		var delay = setTimeout( function () {
+		  self.style.transition = "1s";
+		}, 100);
       }
 	}
   })(i)
@@ -1592,7 +1607,7 @@ paint();
 //wins[0].style.borderColor="white"; 			// default 1st window;
 
 for (var j=0; j<dels.length; j++)
-  dels[j].style.opacity=".6";
+  dels[j].style.opacity=".4";
   
 function checkdels (imgCount,context) {				//anch5
   if (context==right1) {	context=del1	};
@@ -1603,7 +1618,7 @@ function checkdels (imgCount,context) {				//anch5
   if (imgCount>0) {
     context.style.opacity="1"
   } else {
-  context.style.opacity=".6"
+  context.style.opacity=".4"
   }
 }	
 
@@ -1670,7 +1685,7 @@ function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
 	//context=right1;
   checkdels(imgCount,context);
   if (imgCount<2) {
-	context.style.opacity=".6";					//do smth with it;
+	context.style.opacity=".4";					//do smth with it;
   } else {
 	//alert("else");
 	//alert(context.id);
@@ -1681,7 +1696,7 @@ function runactive (pic,x,imgCount,focusedImg,context) {				//anch4
   }
   r=r-1;
   if (r==focusedImg) {
-	context.style.opacity=".6";	//context? ><
+	context.style.opacity=".4";	//context? ><
   } 	
 }
 
@@ -1699,7 +1714,7 @@ function lunactive (x,context) {		//anch6;
   if (context==del5) 	 {	context=left5	};
 	//alert("left-context: "+context.id);
   if (x==0) {
-	context.style.opacity=".6";				//left1~context;
+	context.style.opacity=".4";				//left1~context;
   } else {
 	context.style.opacity="1";	
   }
@@ -1731,10 +1746,10 @@ var makeClick=function (pic,minipic,colored,apps,views) {
 	  colored.style.left=x+"px";
 	}
 	if (source2=="default.jpg") {
-	  this.style.opacity=".6";
+	  this.style.opacity=".4";
 	}
 	if (x==-735) {
-	  this.style.opacity=".6";
+	  this.style.opacity=".4";
 	}
   lunactive (x,context);
   shift (pic,apps,focusedImg);	
@@ -2119,6 +2134,7 @@ click5=makeClick(pic5,minipic5,colored5,apps5,view5);
 for (var i=0; i<arrow.length; i++) {
   (function (i) {
     arrow[i].onmousedown=function () {
+	  this.style.transition = "0s";
 	  this.style.boxShadow="none";
 	  var self = this;
 	  
@@ -2128,6 +2144,9 @@ for (var i=0; i<arrow.length; i++) {
         } else {
 	      self.style.boxShadow="3px 3px 2px 2px";
 	    }
+		var delay = setTimeout( function () {
+		  self.style.transition = "1s";
+		}, 100);
       }
 	}
   })(i);
@@ -2249,26 +2268,6 @@ function shift (pic,apps,focusedImg) {		// focuses elem;
   }
 }
 
-//	function animateScriptStatus {
-var strScript="script is working";
-var inTimer=setInterval(animateText,800);
-var len=1;
-var stopme=0;
-
-function animateText () {
-  if (len<=strScript.length) {
-	var arr=strScript.split("");
-	arr.length=len;
-	var str2=arr.join("");
-	scriptCondition.value=str2;
-	len++;
-  } else {
-	len=1;
-	stopme++;
-	if (stopme==4) {clearInterval(inTimer)}
-  }
-}
-
 fd.onmousedown = function (event) {
   function getCoords(elem) { 
     var box = elem.getBoundingClientRect();
@@ -2310,6 +2309,7 @@ fd.ondragstart = function () {
 }
 close.addEventListener("click", function () {
   fd.style.display="none";
+  path.value="show table";
   path.focus();
 },false);
 mini.addEventListener("click", function () {
@@ -2325,9 +2325,9 @@ mini.addEventListener("click", function () {
 mini.onmouseover = function () {
   inmini1.style.transition="1s";
   if (fd.style.height != "26px") {
-    inmini1.style.borderColor="transparent transparent gold transparent";
+    inmini1.style.borderColor="transparent transparent darkslategray transparent";
   } else {
-    inmini1.style.borderColor="gold";
+    inmini1.style.borderColor="darkslategray";
   }
 }
 mini.onmouseout = function () {
@@ -2336,6 +2336,25 @@ mini.onmouseout = function () {
     inmini1.style.borderColor="transparent transparent white transparent";
   } else {
     inmini1.style.borderColor="white";
+  }
+}
+//	function animateScriptStatus {
+var strScript="script is working";
+var inTimer=setInterval(animateText,800);
+var len=1;
+var stopme=0;
+
+function animateText () {
+  if (len<=strScript.length) {
+	var arr=strScript.split("");
+	arr.length=len;
+	var str2=arr.join("");
+	scriptCondition.value=str2;
+	len++;
+  } else {
+	len=1;
+	stopme++;
+	if (stopme==4) {clearInterval(inTimer)}
   }
 }
 
