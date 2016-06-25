@@ -7,29 +7,32 @@
 <meta http-equiv="content-type" content="text-html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">	<!-- for mobile device -->
 <style type="text/css">
+body {
+	margin-top: 0;
+}
 #fordrag {
 	box-shadow: 3px 2px 2px 2px black;
-	position: absolute;
-	left: 71%;
-	top: 2%;
-	width: 346px;
-	height: 626px;
-	z-index: 10;
-	border-radius: 10px 0 0 0;
+	width: 336px;
+	height: 100%;
+	max-height: 707px;
 	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	border: 2px solid green;
+	margin-left: 5px;
 }
 #dragbox {
-	border: 1px solid rgb(128,128,128);
-	height: 600px;
+	border: 1px solid green;
+	height: 707px;
 	overflow: auto;
 }
 
 #draghead {
-	background: linear-gradient(  to right, rgba(211,211,211, .9), rgba(255,255,255, .9)  );
+	background: linear-gradient(  to right, rgba(211,211,211, 1), rgba(255,255,255, 1)  );
 	border: 0px dashed dodgerblue;
 	border-bottom: 1px solid gray;
 	height: 24px;
-	width: 346px;
+	width: 336px;
 }
 .elems {
 	float: right;
@@ -93,7 +96,7 @@ table {
 	border-collapse: collapse;
 }
 th {
-	background-color: rgba(176,196,222, 0.4);
+	background-color: rgba(176,196,222, 1);
 	font-family: "myFont";
 	border-right: 1px solid;
 	border-bottom: 1px solid;
@@ -202,6 +205,7 @@ img {
 	border-right-color: darkslategray;
 	transition: 1s;
 }
+
 .inarrow {
 	border-color: transparent; 
 	border-right-color: ghostwhite; 
@@ -231,13 +235,12 @@ img {
 }
 
 #view {
-	margin-right: 10px;
-	position: static;
+	display: inline-block;
+	margin-right: 5px;
 	width: 260px; 
 } 
 
 #header {
-	border: 1px solid red; 
 	height: 30px;
 }
 
@@ -270,7 +273,9 @@ img {
 	display: inline-block; 
 		-moz-user-select: none; 
 		-webkit-user-select: none;
-	width: 468px;
+	width: 100%;
+	max-width: 468px; 
+	max-height: 393px;
 }
 /*
 .rside img {
@@ -295,18 +300,22 @@ img {
 }
 
 .del:hover .inarrow {
-	border-right-color: lightsteelblue
+	border-right-color: lightsteelblue;
 }
 
-body {
-	background: silver url("look3.jpg") top center no-repeat;
+html {
+	background: #AAA url(look3.jpg) no-repeat left center fixed;
 	background-size: cover;
-	margin: 0px;
+	margin-top: 0px;
 }
 
 #sdiv {
-	float: right; 
-	margin-top: 5px;
+	display: inline-block;
+	width: 100%;
+/*	max-width: 478px; */
+	max-width: 505px;
+	vertical-align: top;
+	max-height: 710px;
 }
 #sdiv:after {
 	content: '.';
@@ -327,9 +336,10 @@ body {
 	font-style: ; 
 	padding: 4px; 
 	font-weight: ;
-	height: 50px;
+	height: 38px;
 	resize: none; 
-	width: 98%;  
+	width: 98%;
+	line-height: 1;
 }
 .color img[src*='default.jpg'], 
 .rside img[src*='tile.jpg'], 
@@ -339,7 +349,8 @@ body {
 }
 
 .righter {
-	float: right;  
+	display: inline-block;
+	vertical-align: top;
 }
 /*
 .color div {
@@ -351,32 +362,37 @@ body {
 }
 */
 #superdiv {
-	margin-top: 1%;
-	margin-left: 4%;
-	width: 800px;
+	display: block;
+	margin: 0px auto;
+	height: 100%;
+	width: 100%;
+	max-width: 1166px;
+	min-width: 300px;
 }
 
 h1 {
 	color: forestgreen;
 	font-family: 'myFont';
 	font-size: 40px;
-/*	margin-left: 25%; 	*/
 	text-align: center;
 	text-shadow: 2px 2px black;
+	margin: 10px auto 15px auto;
 }
+
 #inst {
-	background-color: yellow;
+	display: block;
+	background-color: lightgray;
 	background: linear-gradient(  to right, rgba(211,211,211, .9), rgba(255,255,255, .9)  );
 	border-radius: 3px;
 	box-shadow: 1px 1px 1px 1px black;
 	color: black;
 	font-family: 'myFont';
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: bold;
-	margin: 0px 3px -15px 0px;
+	margin: 0px 1px -15px 0px;
 	padding-left: 5px;
+	width: 90%;
 }
-
 .check {
 	color: black;
 	font-family: 'myFont';
@@ -413,7 +429,11 @@ input[type='radio'] {
 }
 
 .radiobtns {
-	background-color: yellow;
+	display: none;
+	position: absolute;
+	top: 5px;
+	float: right;
+	background-color: lightgray;
 	border-radius: 3px;
 	background: linear-gradient(  to right, rgba(211,211,211, .9), rgba(255,255,255, .9)  );
 	box-shadow: 2px 2px 3px 1px black;
@@ -472,109 +492,381 @@ div[name*='div'] {
 	width: 141px;
 }
 
-.added1 { width: 72px; height: 72px; display: inline-block; overflow: hidden; margin-top: 0px !important ;}
+.added1 { width: 72px; height: 72px; display: inline-block; overflow: hidden; margin-top: 0px !important;}
 .added2 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
 .added3 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
 .added4 { width: 72px; height: 72px; display: inline-block; overflow: hidden; }
 .added5 { width: 72px; height: 72px; display: inline-block; margin-bottom: -7px ; overflow: hidden; }
-.newadded { border: 3px solid transparent; margin-top: -5px;}
+.newadded { border: 3px solid transparent; margin-top: -5px; }
 
+header {
+	display: block;
+	max-width: 505px;
+	    width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+header > #inst {
+	max-width: 500px;
+		width: 100%;
+}
+header > h1 {
+	max-width: 505px;
+}
+header > #path {
+	max-width: 500px;
+}
+.rside-img-box {
+	border: 10px solid red;
+	float: left;
+}
+#outside-drag {
+	-o-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 100%;
+	max-height: 710px;	
+	width: 25px;
+	position: absolute;
+	background-color: rgba(176,196,222, 1);
+	background: rgba(176,196,222, 1);
+	display: none;
+}
+#outside-drag #hide {
+	transform: rotate(180deg);
+	position: absolute;
+	left: 3px;
+	top: 45%;
+	display: none;
+	background: 
+}
+#outside-drag #unhide {
+	transform: rotate(360deg);
+	position: absolute;
+	right: 1px;
+	top: 45%;
+	display: block;
+}
+.pasted {
+	height: 50%;
+	background: lightgray;
+	background: repeating-radial-gradient(circle, white 0px, lightgray 180px);	
+}
 
+@media (max-width: 1024px) {
+	#draghead {
+		display: none;
+	}
+	#outside-drag {
+		display: block;
+		top: 0;
+		right: 0;
+		width: 25px;
+		border-width: 3px;
+		border-style: solid;
+		border-color: green transparent green green;
+	}	
+	#fordrag {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: none;
+	}
+	#superdiv {
+		max-width: 820px;
+		position: static;
+	}
+	#view {
+		margin-right: 30px;
+	}
+	
+	#flag:checked ~ #superdiv {
+		margin-left: 0;
+	}
+	#flag:checked ~ #superdiv #fordrag {
+		display: block;
+	}
+	#flag:checked ~ #superdiv #sdiv {
+		width: 340px;
+		float: none;
+		display: inline-block;
+	}
+	#flag:checked ~ #superdiv #view {
+
+	}
+	#flag:checked ~ #outside-drag {
+		right: 315px;
+	}
+	#flag:checked ~ #outside-drag #hide {
+		display: block;
+	}
+	#flag:checked ~ #outside-drag #unhide {
+		display: none;
+	}
+	#flag:checked ~ #superdiv .rside {			/* static */
+		width: 300px;
+		overflow: hidden;
+	}
+	#flag:checked ~ #superdiv .newadded {
+		margin-left: -34px;
+	}
+	#flag:checked ~ #superdiv .rside .newadded:first-child {
+		margin-left: 1px;
+	}
+	#flag:checked ~ #superdiv .newadded:nth-child(7) {
+		margin-left: 1px;
+	}
+	#flag:checked ~ #superdiv .newadded:nth-child(13) {
+		margin-left: 1px;
+	}
+	#flag:checked ~ #superdiv .newadded:nth-child(19) {
+		margin-left: 1px;
+	}
+	#flag:checked ~ #superdiv .newadded:nth-child(25) {
+		margin-left: 1px;
+	}
+}
+/*
+@media (max-width: 980px) {
+	#flag:checked ~ #superdiv #view {
+		margin-right: 5px;
+	}
+}
+*/
+@media screen and (min-width: 661px) and (max-width: 830px) {
+	#view {
+		margin-right: 5px;
+	}
+	.rside {
+		width: 300px;
+	}
+	#drag {
+		display: none;
+	}
+	header > #inst {
+		max-width: 325px;
+		width: 100%;
+	}
+	header > h1 {
+		max-width: 330px;
+	}
+	header > #path {
+		max-width: 320px;
+	}
+	#sdiv {
+		max-width: 340px;	
+		position: absolute;
+		left: 270px;
+		right: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}	
+	.added1,
+	.added2,
+	.added3,
+	.added4,
+	.added5 {
+		margin-left: -34px;
+	}
+	.newadded:first-child {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(7) {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(13) {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(19) {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(25) {
+		margin-left: 1px;
+	}
+}
+@media (max-width: 744px) {
+/*	#sdiv {
+		margin-right: 25px;
+		margin-left: 2px;
+		float: none;
+		display: inline-block;
+	}
+}
+*/
+@media (max-width: 660px) {
+	body {
+		position: absolute;
+		border: 2px dotted green;
+		margin: 0 auto;
+		width: 100%;
+	}
+/*	#superdiv {
+		border: 1px dotted dodgerblue;
+		position: absolute;
+		max-width: 660px;
+		width: 100%;
+		left: 5px;
+		height: 400px;
+	}
+*/
+	#sdiv {
+		position: absolute;	
+		top: 298px;
+/*		margin-left: 20px;	*/
+			width: 98.5%;
+		max-width: 660px;	
+	}
+	header {
+		border: 3px solid green;
+		position: absolute;
+		top: -280px;
+/*
+		width: 100%;
+		max-width: 660px;
+		margin-left: 1px;
+*/
+		margin-left: 20px;
+		width: 100%;
+		max-width: 660px;
+		width: calc(100% - 40px);
+	}
+	header > * {
+		position: relative;
+		width: 100%;
+		max-width: 600px !important;
+	}
+	#view {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 144px;
+	}
+	#inst {
+		display: none;
+	}
+	header > #path {
+		margin-top: -19px;
+	}
+	header > h1 {
+		margin: 0;
+	}
+	#outside-drag {
+		display: none;
+	}
+	hr {
+		display: none;
+	}
+	.box {
+		margin-bottom: 100px;
+	}
+
+	.newadded {
+		margin-bottom: 162px;
+		margin-right: 22px;
+	}
+	.rside {
+		background-color: transparent;
+		position: absolute;
+		width: 100%;
+		max-width: 620px;
+	}
+	.righter {
+		position: absolute;
+		right: 0;
+	}
+	.righter .del {
+		margin-bottom: 164px;
+	}
+}
+@media (min-width: 630px) and (max-width: 660px) {
+	.newadded {
+		margin-right {
+			22px;
+		}
+	}
+}
+@media (min-width: 530px) and (max-width: 629px) {
+	.rside {
+		border: 1px solid black;
+		width: 480px;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.newadded {
+		margin-right: 1px;
+	}
+	.righter {
+		margin-right: 0;
+	}
+}
+@media (max-width: 530px) {
+	.rside {
+		left: 0;
+		right: 0;
+		width: 300px;
+		border: 1px solid;
+		max-height: 1000px;
+		height: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.righter {
+		right: 0;
+	}
+	.added1,
+	.added2,
+	.added3,
+	.added4,
+	.added5 {
+		margin-right: 0px;
+		margin-left: -34px;
+	}
+	.newadded:first-child {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(7) {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(13) {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(19) {
+		margin-left: 1px;
+	}
+	.newadded:nth-child(25) {
+		margin-left: 1px;
+	}
+}
+@media (max-width: 480px) {
+	
+}
+@media (max-width: 385px) {
+	.rside {
+		left: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+@media (max-width: 320px) {
+	#outside-drag {
+		display: none;
+	}
+	header,
+	#sdiv {
+		min-width: 300px;
+	}
+}
 </style>
 <link rel="icon" href="icon.ico" type="image/x-icon"> 
 </head>
 
 <body>
 <textarea class="check" id="check1">script is failed</textarea>
-
+<input type="checkbox" id="flag" style="display: none">
 <div id="superdiv">
-<div id="sdiv">
-<!--<div class="file">
-<div class="infile">
-<input type="file" maxlength="16" size="16" value="left: " id="file1"><br>
-<input type="button" value="Remember IMG" id="ok1"><br>
--->
-<div class="radiobtns">
-<text>select language: </text><br>
-  <input type="radio" id="ru" name="o_o" checked="checked">
-  <label for="ru"><span>русский</span></label><img src="Russia.png"><br>
-  <input type="radio" id="en" name="o_o">
-  <label for="en"><span>english</span></label><img src="uk.png">
-</div>
-<h1>Colo<text style="color: red">red</text> View</h1>
-<div id="inst">Вставьте ссылку на изображение или введите название цвета <br> 
-(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter' </div><br>
-<textarea id="path"></textarea><hr>
-<!--</div>
-</div> -->	
-<div class="rside">
-
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-<img name="minifirst" src="default.jpg"   alt=".">
-
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-<img name="minisecond" src="default.jpg"   alt="">
-
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-<img name="minithird" src="default.jpg"   alt="">
-
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-<img name="minifourth" src="default.jpg"   alt="">
-
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-<img name="minififth" src="default.jpg" alt="">
-</div>	
-
-<div class="righter">
-<div class="del" id="del1" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del2" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del3" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del4" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-<div class="del" id="del5" name="del">
-<div class="delete">
-	<div class="inarrow"> </div>
-</div>
-</div>
-</div>
-<hr>
-</div>	 <!--end of sdiv-->	
-
 <div id="view">	
 <div id="box1" class="box">
 
@@ -699,8 +991,94 @@ div[name*='div'] {
 </div>
 	</div>	
 </div>  <!-- end of view -->
+<div id="sdiv">
+<!--<div class="file">
+<div class="infile">
+<input type="file" maxlength="16" size="16" value="left: " id="file1"><br>
+<input type="button" value="Remember IMG" id="ok1"><br>
+-->
+<header>
+<h1>Colo<text style="color: red">red</text> View</h1>
+<span class="radiobtns">
+<text>select language: </text><br>
+  <input type="radio" id="ru" name="o_o" checked="checked">
+  <label for="ru"><span>русский</span></label><img src="Russia.png"><br>
+  <input type="radio" id="en" name="o_o">
+  <label for="en"><span>english</span></label><img src="uk.png">
+</span>
+<span id="inst">Вставьте ссылку на изображение или введите название цвета 
+(например: <text style="color: red">red</text>) в поле ниже и нажмите 'Enter' </span><br>
+<textarea id="path"></textarea><hr>
+<!--</div>
+</div> -->	
+</header>
 
-</div> <!--end of superdiv-->
+<div class="rside">
+
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+<img name="minifirst" src="default.jpg"   alt=".">
+
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+<img name="minisecond" src="default.jpg"   alt="">
+
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+<img name="minithird" src="default.jpg"   alt="">
+
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+<img name="minifourth" src="default.jpg"   alt="">
+
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+<img name="minififth" src="default.jpg" alt="">
+</div>	<!--end of .rside-->
+<div class="righter">
+<div class="del" id="del1" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del2" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del3" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del4" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+<div class="del" id="del5" name="del">
+<div class="delete">
+	<div class="inarrow"> </div>
+</div>
+</div>
+</div>	<!--end of .righter-->
+<hr>
+</div>	 <!--end of sdiv-->	
 
 <div id="fordrag">
 <div id="draghead">
@@ -718,9 +1096,11 @@ div[name*='div'] {
   </div>
 </div>		<!-- end of draghead -->
 <div id="dragbox">
+
+
 <table>
 <thead><tr>
-<th style="width: 150px;"><b>Color</b>
+<th style="width: 155px;"><b>Color</b>
 </th><th><b>HEX-code</b>
 </th><th><b>Color name</b>
 </th></tr>
@@ -1414,6 +1794,19 @@ div[name*='div'] {
 </table>
 </div> <!-- end of dragbox -->
 </div> <!-- end of fordrag -->
+</div> <!--end of superdiv-->
+	<label id="outside-drag" for="flag">
+		<div class="delete" id="unhide">
+			<div class="inarrow"
+				style="border-right-color: rgba(176,196,222, 1);"> 
+			</div>
+		</div>
+		<div class="delete" id="hide">
+			<div class="inarrow"
+				style="border-right-color: rgba(176,196,222, 1);"> 
+		</div>
+		</div>
+	</label>
 </body>
 <noscript>JavaScript is disabled</noscript>
 <script type="text/javascript">
@@ -1802,9 +2195,7 @@ url=file1.value;
 	//if ( path.value.indexOf!="/" && path.value.indexOf!="\" ) 
     if (path.value.length < 20) {		
 	  if (path.value.toLowerCase()=="show table" || path.value.toLowerCase()=="ырщц ефиду") {
-	    fd.style.display="block";
-		fd.style.left="71%";
-		fd.style.top="2%";
+	    fd.style.display="inline-block";
 		path.value="";
 		return;
 	  } else if ( ~path.value.indexOf("+") ) {
@@ -2267,7 +2658,7 @@ function shift (pic,apps,focusedImg) {		// focuses elem;
 	apps[focusedImg].style.border="3px solid black"; 
   }
 }
-
+/*
 fd.onmousedown = function (event) {
   function getCoords(elem) { 
     var box = elem.getBoundingClientRect();
@@ -2301,9 +2692,9 @@ fd.onmousedown = function (event) {
       this.onmousemove = null;
   	this.onmouseup = null;
     }
-  } else {  return }
+  } else {  return  }
 }
-
+*/
 fd.ondragstart = function () {
   return false
 }
